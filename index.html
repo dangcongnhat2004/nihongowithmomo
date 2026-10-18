@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="description" content="NihonGO cùng Momo — ứng dụng hỗ trợ học tiếng Nhật với AI, video thực tế và hành trình luyện tập 4 kỹ năng.">
+  <meta property="og:title" content="NihonGO — Học tiếng Nhật cùng Momo">
+  <meta property="og:description" content="Học tiếng Nhật dễ hơn mỗi ngày với NihonGO.">
+  <title>NihonGO — Học tiếng Nhật cùng Momo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900;1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="NihonGO trang chủ">
+        <img src="assets/nihongo-logo-horizontal.png" alt="Logo NihonGO với mascot Momo">
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Mở menu"><span></span><span></span></button>
+      <nav id="nav-links" class="nav-links" aria-label="Điều hướng chính">
+        <a href="#about">Giới thiệu</a>
+        <a href="#features">Tính năng</a>
+        <a href="#how">Cách hoạt động</a>
+        <a href="#pricing">Bảng giá</a>
+        <a href="#faq">FAQ</a>
+        <div class="language-picker" id="language-picker">
+          <img class="language-picker-icon" src="assets/language-translate-icon.png" alt="" aria-hidden="true">
+          <button class="language-trigger" id="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu">
+            <span id="language-current">Vietnamese</span>
+            <svg class="language-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="language-menu" id="language-menu" role="listbox" aria-label="Choose language" hidden>
+            <button type="button" class="language-option is-selected" role="option" aria-selected="true" data-lang="vi">Vietnamese <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="en">English <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="ja">Japanese <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="km">Khmer <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="id">Indonesian <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="ms">Malay <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="th">Thai <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="es">Spanish <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="de">German <span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
+          <select id="language-select" class="language-select-native" aria-label="Select language" tabindex="-1" aria-hidden="true">
+            <option value="vi" selected>Vietnamese</option><option value="en">English</option><option value="ja">Japanese</option><option value="km">Khmer</option><option value="id">Indonesian</option><option value="ms">Malay</option><option value="th">Thai</option><option value="es">Spanish</option><option value="de">German</option>
+          </select>
+        </div>
+        <a class="nav-cta" href="#try">Trải nghiệm ngay <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="about">
+      <div class="hero-sky"></div>
+      
+      <div class="torii-silhouette" aria-hidden="true"><span></span><i></i><b></b></div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="pill"><span class="pill-icon" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13"/><path d="M3 18a2 2 0 0 0 2 2h3a4 4 0 0 1 4 2 4 4 0 0 1 4-2h3a2 2 0 0 0 2-2"/></svg></span> Học tiếng Nhật dễ hơn mỗi ngày</div>
+          <h1>Nihon<span>GO</span></h1>
+          <h2>Học tiếng Nhật cùng Momo</h2>
+          <p class="hero-description">Ứng dụng hỗ trợ bạn phát triển toàn diện 4 kỹ năng tiếng Nhật với AI, video thực tế và lộ trình học cá nhân hóa.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#try">Trải nghiệm ngay <span>→</span></a>
+            <a class="btn btn-secondary" href="#features"><span class="play"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Tìm hiểu thêm</a>
+          </div>
+          <div class="hero-benefits">
+            <span><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b> Học với video thực tế</span>
+            <span><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b> AI hỗ trợ cá nhân hóa</span>
+            <span><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b> Học mọi lúc, mọi nơi</span>
+          </div>
+          <div class="hero-store-links" aria-label="Tải ứng dụng NihonGO">
+            <span class="hero-store-label">Ứng dụng di động</span>
+            <a class="store-badge store-badge-apple" href="#try" aria-label="App Store — liên kết phát hành sẽ được cập nhật">
+              <img class="store-brand-icon apple-icon-img" src="assets/app-store-icon.png" alt="App Store" />
+              <span><small>Tải trên</small><strong>App Store</strong></span>
+              <em>Sắp ra mắt</em>
+            </a>
+            <a class="store-badge store-badge-google" href="#try" aria-label="Google Play — liên kết phát hành sẽ được cập nhật">
+              <svg class="store-brand-icon google-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.2 2.4 14 12 3.2 21.6c-.4-.3-.7-.9-.7-1.7V4.1c0-.8.3-1.4.7-1.7Z"/><path fill="#4285F4" d="m3.2 2.4 13 7.3-2.2 2.3L3.2 2.4Z"/><path fill="#FBBC04" d="m14 12 2.2 2.3-13 7.3L14 12Z"/><path fill="#EA4335" d="m16.2 9.7 4.2 2.3c1 .6 1 1.4 0 2l-4.2 2.3-2.2-2.3 2.2-2-2.2-2.3Z"/></svg>
+              <span><small>Có mặt trên</small><strong>Google Play</strong></span>
+              <em>Sắp ra mắt</em>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" id="momo-scene" aria-label="Momo đồng hành cùng ứng dụng NihonGO">
+          <div class="art-halo"></div>
+          <div class="speech-bubble">一緒に<br>日本語を学ぼう！<small>♥</small></div>
+          <div class="mascot-wrap" id="momo-tilt">
+            <div class="mascot-shadow"></div>
+            <div class="mascot-image">
+              <img src="assets/momo-mascot-transparent.png" alt="Momo, mascot gấu trúc đỏ của NihonGO">
+              <svg class="momo-blink" viewBox="0 0 820 692" aria-hidden="true">
+                <g class="blink-eyes">
+                  <ellipse cx="320" cy="442" rx="69" ry="51" fill="#5b3024" transform="rotate(-8 320 442)"/>
+                  <path d="M265 445 Q319 490 371 431" fill="none" stroke="#2b1713" stroke-width="12" stroke-linecap="round"/>
+                  <ellipse cx="605" cy="365" rx="65" ry="49" fill="#5b3024" transform="rotate(8 605 365)"/>
+                  <path d="M553 366 Q605 410 656 354" fill="none" stroke="#2b1713" stroke-width="12" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+            <span class="spark spark-a" aria-hidden="true">♫</span><span class="spark spark-b" aria-hidden="true">▤</span>
+          </div>
+          <div class="phone-mockup phone-mockup-real" aria-label="Ảnh chụp giao diện ứng dụng NihonGO">
+            <img class="app-screen-image" src="assets/app-screenshot.png" alt="Ảnh chụp thật giao diện ứng dụng NihonGO: tra cứu từ vựng, tiếp tục học JLPT và luyện kỹ năng" />
+          </div>
+          <div class="float-chip chip-video"><span>▶</span><div><b>Video Learning</b><small>Học qua ngữ cảnh thực tế</small></div></div>
+          <div class="float-chip chip-ai"><span>AI</span><div><b>AI Companion</b><small>Học theo nhịp của bạn</small></div></div>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>NIHONGO WITH MOMO</span><i></i><span>一歩ずつ — TỪNG BƯỚC MỘT</span></div>
+    </section>
+
+    <section class="proof-strip container reveal" aria-label="Điểm nổi bật">
+      <div class="proof-item"><span class="proof-icon people" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><strong>10,000+</strong><small>người học đang trải nghiệm</small></div></div>
+      <div class="proof-item"><span class="proof-icon star" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.68 6.27.91-4.54 4.42 1.07 6.24L12 17.3l-5.6 2.95 1.07-6.24L2.93 9.59l6.27-.91L12 3Z"/></svg></span><div><strong>4.8/5</strong><small>đánh giá trung bình</small></div></div>
+      <div class="proof-item"><span class="proof-icon bars" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><div><strong>Học hiệu quả hơn</strong><small>với AI cá nhân hóa</small></div></div>
+      <div class="proof-item"><span class="proof-icon heart" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg></span><div><strong>Phù hợp cho mọi trình độ</strong><small>từ N5 đến N1</small></div></div>
+    </section>
+
+    <section class="challenge-section section container reveal">
+      <div class="challenge-left">
+        <p class="eyebrow">BẠN CÓ TỪNG...</p>
+        <h2>Những khó khăn thường gặp<br>khi học tiếng Nhật</h2>
+        <div class="challenge-cards">
+          <article class="challenge-card">
+            <div class="mini-illustration memory"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.6 6.5a3 3 0 0 0-5.6-1.5 3 3 0 0 0-5.6 1.5 3.5 3.5 0 0 0-.4 6.8A3.5 3.5 0 0 0 9 18h6a3.5 3.5 0 0 0 3-4.7 3.5 3.5 0 0 0-.4-6.8Z"/></svg></div>
+            <h3>Khó ghi nhớ<br>từ vựng và ngữ pháp</h3><p>Học xong dễ quên, không có ngữ cảnh sử dụng và khó áp dụng vào giao tiếp thực tế.</p>
+          </article>
+          <article class="challenge-card">
+            <div class="mini-illustration practice"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></div>
+            <h3>Thiếu môi trường<br>luyện tập</h3><p>Ít cơ hội luyện nghe, phản xạ nói với người bản xứ và không có ai chỉnh lỗi phát âm.</p>
+          </article>
+          <article class="challenge-card">
+            <div class="mini-illustration motivation"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></div>
+            <h3>Khó duy trì động lực</h3><p>Không có lộ trình rõ ràng, bài giảng nhàm chán khiến bạn nhanh cảm thấy nản và bỏ cuộc.</p>
+          </article>
+        </div>
+      </div>
+      <div class="solution-panel">
+        <div class="solution-copy">
+          <p class="eyebrow">MEET YOUR LEARNING PARTNER</p>
+          <h2>Nihon<span>GO</span> giúp bạn<br><em>học tiếng Nhật dễ dàng hơn</em></h2>
+          <ul>
+            <li>Học qua video thực tế, ngữ cảnh sống động từ đời sống Nhật Bản</li>
+            <li>AI hỗ trợ cá nhân hóa lộ trình học theo mục tiêu và điểm yếu</li>
+            <li>Phát triển toàn diện 4 kỹ năng: Nghe, Nói, Đọc, Viết</li>
+            <li>Theo dõi tiến độ hàng ngày và nhắc nhở học tập thông minh</li>
+            <li>Phù hợp cho người tự học từ con số 0 và luyện thi JLPT N5–N1</li>
+          </ul>
+        </div>
+        <div class="reading-momo"><img src="assets/momo-mascot-transparent.png" alt="Momo mascot NihonGO"><span class="book">にほんご</span></div>
+      </div>
+    </section>
+
+    <section class="skills-section section container reveal" id="features">
+      <div class="skills-heading"><div><p class="eyebrow">LEARN EVERY DAY</p><h2>4 kỹ năng — 1 hành trình hoàn chỉnh</h2><p>Học tiếng Nhật một cách tự nhiên, hiệu quả và bền vững.</p></div><a class="text-link" href="#how">Khám phá cách học <span>↗</span></a></div>
+      <div class="skill-grid">
+        <article class="skill-card skill-listen"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M5 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5h2ZM19 14h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h-2Z"/></svg></div><div><h3>Nghe <small>聞く</small></h3><p>Làm quen với âm thanh và cách diễn đạt tự nhiên.</p></div><span class="skill-arrow">↗</span></article>
+        <article class="skill-card skill-speak"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></div><div><h3>Nói <small>話す</small></h3><p>Luyện diễn đạt và tự tin giao tiếp hơn.</p></div><span class="skill-arrow">↗</span></article>
+        <article class="skill-card skill-read"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13"/><path d="M3 18a2 2 0 0 0 2 2h3a4 4 0 0 1 4 2 4 4 0 0 1 4-2h3a2 2 0 0 0 2-2"/></svg></div><div><h3>Đọc <small>読む</small></h3><p>Hiểu ý nghĩa, từ vựng và cấu trúc câu.</p></div><span class="skill-arrow">↗</span></article>
+        <article class="skill-card skill-write"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 5 3 3"/><path d="M4 20l4.5-1 11-11a2.12 2.12 0 0 0-3-3l-11 11L4 20Z"/></svg></div><div><h3>Viết <small>書く</small></h3><p>Thực hành tạo câu và sử dụng kiến thức chủ động.</p></div><span class="skill-arrow">↗</span></article>
+      </div>
+    </section>
+
+    <section class="how-section section" id="how">
+      <div class="container how-grid">
+        <div class="how-copy"><p class="eyebrow">HOW IT WORKS</p><h2>Mỗi ngày một chút.<br><span>Tiến bộ từng bước.</span></h2><p>Một trải nghiệm học tập được thiết kế để giúp bạn chuyển từ tiếp thu kiến thức sang chủ động sử dụng tiếng Nhật.</p><a href="#try" class="btn btn-primary">Khám phá bản demo <span>→</span></a></div>
+        <div class="how-steps">
+          <article><span>01</span><div><h3>Khám phá</h3><p>Chọn nội dung và kỹ năng bạn muốn luyện tập.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3 6.3-2.1Z"/></svg></b></article>
+          <article><span>02</span><div><h3>Học trong ngữ cảnh</h3><p>Kết nối từ vựng, ngữ pháp với ví dụ thực tế.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></b></article>
+          <article><span>03</span><div><h3>Thực hành cùng AI</h3><p>Luyện tập và nhận hỗ trợ trong quá trình học.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></b></article>
+          <article><span>04</span><div><h3>Ôn tập và duy trì</h3><p>Giữ nhịp học đều đặn và quay lại kiến thức đã học.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="listening-section section container reveal" id="listening-demo">
+      <div class="section-intro"><p class="eyebrow">HỌC TRONG NGỮ CẢNH THỰC TẾ</p><h2>Kỹ năng: Nghe <span>聞く</span></h2><p>Luyện nghe phản xạ với hội thoại đời sống, video và nội dung tiếng Nhật gần gũi.</p></div>
+      <div class="listening-grid">
+        <div class="listening-copy">
+          <div class="feature-points">
+            <div><span class="feature-icon"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M5 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5h2ZM19 14h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h-2Z"/></svg></span><div><b>Tùy chỉnh tốc độ 0.75x–1.5x</b><small>Luyện nghe theo nhịp độ phù hợp.</small></div></div>
+            <div><span class="feature-icon"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13"/><path d="M3 18a2 2 0 0 0 2 2h3a4 4 0 0 1 4 2 4 4 0 0 1 4-2h3a2 2 0 0 0 2-2"/></svg></span><div><b>Phụ đề và Furigana</b><small>Hỗ trợ nhận diện cách đọc và ý nghĩa.</small></div></div>
+            <div><span class="feature-icon"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg></span><div><b>Nghe lặp lại / Shadowing</b><small>Nghe nhiều lần và luyện nói theo.</small></div></div>
+          </div>
+          <div class="listening-note"><b>Gợi ý nội dung</b><p>Hội thoại tại cửa hàng tiện lợi (Combini), tin tức dễ hiểu và các tình huống giao tiếp hằng ngày.</p></div>
+        </div>
+        <div class="dialogue-card">
+          <div class="dialogue-top"><span class="live-dot"></span><span><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M5 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5h2ZM19 14h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h-2Z"/></svg> LUYỆN TẬP KỸ NĂNG NGHE</span><span class="level-tag">N5</span></div>
+          <p class="dialogue-label">Hội thoại tại cửa hàng tiện lợi</p>
+          <div class="japanese-line" id="japanese-line">いらっしゃいませ！おべんとう あたためますか？</div>
+          <div class="furigana-line" id="furigana-line">いらっしゃいませ！お弁当、温めますか？</div>
+          <div class="romaji-line">Irasshaimase! Obentou atatamemasu ka?</div>
+          <div class="meaning-line">👉 Kính chào quý khách! Quý khách có muốn hâm nóng cơm hộp không ạ?</div>
+          <div class="dialogue-actions"><button type="button" class="btn btn-secondary btn-small" id="furigana-toggle">Ẩn Furigana</button><button type="button" class="btn btn-primary btn-small" id="speak-japanese"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg> Nghe câu tiếng Nhật</button></div>
+          <p class="audio-note" id="audio-note">Sử dụng giọng tiếng Nhật có sẵn trên trình duyệt của bạn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section section" id="practice">
+      <div class="container quiz-layout reveal">
+        <div class="quiz-momo"><img src="assets/momo-mascot-transparent.png" alt="Momo đồng hành trong bài luyện tập"><div class="exp-badge"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.68 6.27.91-4.54 4.42 1.07 6.24L12 17.3l-5.6 2.95 1.07-6.24L2.93 9.59l6.27-.91L12 3Z"/></svg> EXP <b id="exp-count">0</b></div></div>
+        <div class="quiz-content"><p class="eyebrow">TRẢI NGHIỆM TRỰC TIẾP</p><h2>Thử sức 1 phút cùng bạn Cáo Momo</h2><p class="quiz-lead">Câu hỏi thực tế N5 — chọn câu chào buổi sáng lịch sự chuẩn nhất trong tiếng Nhật:</p>
+          <div class="quiz-options" role="group" aria-label="Chọn câu trả lời">
+            <button type="button" class="quiz-option" data-correct="false"><span>こんにちは</span><small>Konnichiwa · Chào buổi trưa / chiều thông dụng</small></button>
+            <button type="button" class="quiz-option" data-correct="true"><span>おはようございます</span><small>Ohayou gozaimasu · Chào buổi sáng lịch sự</small></button>
+            <button type="button" class="quiz-option" data-correct="false"><span>こんばんは</span><small>Konbanwa · Chào buổi tối</small></button>
+            <button type="button" class="quiz-option" data-correct="false"><span>さようなら</span><small>Sayounara · Tạm biệt (ít dùng hằng ngày)</small></button>
+          </div><p class="quiz-feedback" id="quiz-feedback" aria-live="polite">Chọn một đáp án để kiểm tra nhé!</p><button type="button" class="text-link quiz-reset" id="quiz-reset">Làm lại câu hỏi ↻</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section section container reveal" id="testimonials">
+      <div class="section-heading-centered"><p class="eyebrow">ĐÁNH GIÁ TỪ CỘNG ĐỒNG</p><h2>Hơn 10,000+ học viên tin chọn NihonGO</h2><p>Lắng nghe những câu chuyện học tiếng Nhật cùng Momo.</p></div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card"><div class="quote-mark">“</div><div class="rating-stars" aria-label="5 trên 5 sao">★★★★★</div><blockquote>Trước đây mình rất sợ phần Nghe và Nói vì không có người luyện tập cùng. Từ ngày học với NihonGO, linh vật Momo dễ thương luôn đồng hành nhắc nhở.</blockquote><div class="reviewer"><img class="reviewer-avatar reviewer-photo" src="assets/testimonial-truong-gia-huy.png" alt="Ảnh Trương Gia Huy" /><div><b>Trương Gia Huy</b><small>Thực tập sinh tại Tokyo, Nhật Bản</small></div></div><div class="review-result">Đỗ JLPT N2 sau 8 tháng học cùng Momo</div></article>
+        <article class="testimonial-card"><div class="quote-mark">“</div><div class="rating-stars" aria-label="5 trên 5 sao">★★★★★</div><blockquote>Video ngữ cảnh thực tế của NihonGO khác biệt hoàn toàn với các app sách vở truyền thống. Bạn học được những câu người Nhật thường nói ở văn phòng và đời sống.</blockquote><div class="reviewer"><img class="reviewer-avatar reviewer-photo" src="assets/testimonial-dang-cong-nhat.png" alt="Ảnh Đặng Công Nhật" /><div><b>Đặng Công Nhật</b><small>Thực tập sinh tại Tokyo, Nhật Bản</small></div></div><div class="review-result">Giao tiếp công sở tự nhiên, đỗ N1</div></article>
+        <article class="testimonial-card"><div class="quote-mark">“</div><div class="rating-stars" aria-label="5 trên 5 sao">★★★★★</div><blockquote>Giao diện ứng dụng trực quan! Mỗi ngày chỉ cần 15 phút rảnh rỗi trên xe bus là mình đã học xong mục tiêu mà không cảm thấy áp lực.</blockquote><div class="reviewer"><img class="reviewer-avatar reviewer-photo" src="assets/testimonial-le-dao-minh-nhat.jpg" alt="Ảnh Lê Đào Minh Nhật" /><div><b>Lê Đào Minh Nhật</b><small>Kỹ sư cầu nối (BrSE)</small></div></div><div class="review-result">Đạt chuỗi streak 120 ngày liên tục</div></article>
+      </div>
+      <p class="content-disclaimer">Lưu ý: các đánh giá và kết quả học tập cần được xác minh và có sự đồng ý của người được trích dẫn trước khi công bố chính thức.</p>
+    </section>
+
+    <section class="pricing-section section" id="pricing">
+      <div class="container reveal"><div class="section-heading-centered"><p class="eyebrow">ĐẦU TƯ THÔNG MINH</p><h2>Lựa chọn gói học phù hợp với bạn</h2><p>Học thử miễn phí ngay hôm nay. Chọn gói phù hợp với hành trình của bạn.</p></div>
+        <div class="pricing-grid">
+          <article class="price-card"><div class="price-card-top"><span class="plan-kicker">BẮT ĐẦU HỌC</span><h3>Cơ bản <small>(Free)</small></h3><p>Dành cho người mới bắt đầu làm quen với bảng chữ cái Hiragana &amp; Katakana.</p></div><div class="price"><strong>0đ</strong><span>/ mãi mãi</span></div><ul><li>Bảng chữ cái &amp; 200 từ vựng N5 cốt lõi</li><li>5 bài luyện nghe hội thoại cơ bản/ngày</li><li>Theo dõi tiến độ và chuỗi streak học</li><li>Cộng đồng học viên tự học tiếng Nhật</li></ul><a class="btn btn-secondary price-cta" href="#try">Bắt đầu miễn phí</a><small class="price-foot">✓ Không cần thanh toán để bắt đầu</small></article>
+          <article class="price-card price-featured"><div class="popular-label">ĐƯỢC CHỌN NHIỀU</div><div class="price-card-top"><span class="plan-kicker">BỨT PHÁ TOÀN DIỆN</span><h3>NihonGO Pro</h3><p>Gói phổ biến dành cho người muốn phát triển toàn diện 4 kỹ năng.</p></div><div class="price"><strong>99.000đ</strong><span>/ tháng</span></div><p class="saving-note">Giá tham khảo — ưu đãi 45% cần xác nhận</p><ul><li>Mở khóa khóa học từ N5 đến N1</li><li>AI chỉnh sửa phát âm &amp; cao độ</li><li>Học qua video đời sống thực tế</li><li>Bộ đề thi thử JLPT có bấm giờ &amp; giải chi tiết</li><li>Chế độ tải bài học ngoại tuyến (Offline)</li><li>Hỗ trợ 1:1 từ trợ giảng tiếng Nhật</li></ul><a class="btn btn-primary price-cta" href="#try">Trải nghiệm Pro</a><small class="price-foot">✓ Chi tiết quyền lợi cần xác nhận theo bản demo</small></article>
+          <article class="price-card"><div class="price-card-top"><span class="plan-kicker">ĐỒNG HÀNH LÂU DÀI</span><h3>Trọn đời <small>(Lifetime)</small></h3><p>Đầu tư một lần cho hành trình chinh phục tiếng Nhật.</p></div><div class="price"><strong>1.299.000đ</strong><span>/ thanh toán một lần</span></div><ul><li>Tất cả quyền lợi Pro trọn đời</li><li>Cập nhật tính năng mới theo chính sách</li><li>Tặng khóa luyện phỏng vấn việc làm tiếng Nhật</li><li>Huy hiệu thành viên VIP cùng Momo</li></ul><a class="btn btn-secondary price-cta" href="#try">Tìm hiểu gói trọn đời</a><small class="price-foot">✓ Cần xác nhận điều khoản sử dụng</small></article>
+        </div>
+        <p class="pricing-disclaimer">Các mức giá và quyền lợi trên được đưa vào theo nội dung tham khảo bạn cung cấp; cần xác nhận chính sách bán hàng, tính năng đã triển khai và điều khoản hoàn tiền trước khi công bố.</p>
+      </div>
+    </section>
+
+    <section class="faq-section section container reveal" id="faq">
+      <div class="faq-heading"><p class="eyebrow">GIẢI ĐÁP THẮC MẮC</p><h2>Câu hỏi thường gặp về NihonGO</h2><p>Mọi điều bạn cần biết trước khi bắt đầu hành trình học tiếng Nhật cùng Momo.</p></div>
+      <div class="faq-list">
+        <details><summary>Ứng dụng NihonGO có phù hợp cho người hoàn toàn chưa biết gì không?<span>＋</span></summary><p>NihonGO hướng đến người mới bắt đầu với bảng chữ cái Hiragana, Katakana và lộ trình học từ nền tảng. Hãy kiểm tra các bài học hiện có trong bản demo để biết phần nào đã sẵn sàng trải nghiệm.</p></details>
+        <details><summary>Công nghệ AI của NihonGO hỗ trợ sửa phát âm như thế nào?<span>＋</span></summary><p>Định hướng của NihonGO là hỗ trợ người học thực hành nói và nhận phản hồi. Phạm vi phân tích phát âm, cao độ và giới hạn lượt dùng cần được mô tả theo chức năng thực tế của phiên bản đang triển khai.</p></details>
+        <details><summary>Tôi có thể tải bài học về để học khi không có mạng (Offline) không?<span>＋</span></summary><p>Khả năng học ngoại tuyến phụ thuộc vào phiên bản ứng dụng và gói sử dụng. Vui lòng xác nhận tính năng này đã được triển khai trước khi đăng thông tin chính thức.</p></details>
+        <details><summary>NihonGO có cam kết hoàn tiền nếu tôi không thấy tiến bộ không?<span>＋</span></summary><p>Chính sách hoàn tiền cần được công bố rõ về điều kiện, thời hạn và quy trình yêu cầu. Không nên coi nội dung hoàn tiền 7 ngày là cam kết chính thức cho đến khi đội ngũ xác nhận chính sách.</p></details>
+        <details><summary>NihonGO hỗ trợ những kỹ năng nào?<span>＋</span></summary><p>NihonGO tập trung vào bốn kỹ năng Nghe (聞く), Nói (話す), Đọc (読む) và Viết (書く), kết hợp thực hành theo ngữ cảnh và lộ trình học.</p></details>
+        <details><summary>Tôi có thể trải nghiệm ứng dụng ở đâu?<span>＋</span></summary><p>Nhấn nút “Trải nghiệm ngay” để mở bản demo sau khi URL website thật được cấu hình trong mã nguồn.</p></details>
+      </div>
+    </section>
+
+    <section class="cta-section section" id="try">
+      <div class="container cta-panel reveal">
+        <div class="cta-decoration" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12a2 2 0 0 1 2 2v15l-8-4-8 4V6a2 2 0 0 1 2-2Z"/></svg></div><p class="eyebrow">ĐỒNG HÀNH CÙNG BẠN MỖI NGÀY</p>
+        <h2>Bắt đầu hành trình tiếng Nhật<br><span>cùng Momo ngay hôm nay!</span></h2>
+        <p>Chỉ 15 phút mỗi ngày — bắt đầu từ một bước nhỏ và tiếp tục tiến bộ.</p>
+        <div class="cta-actions"><a class="btn btn-primary btn-large" id="demo-link" href="#try">Học thử trên Web <span>→</span></a><a class="btn btn-secondary btn-large" href="#features">Khám phá tính năng</a></div>
+        <div class="store-placeholder">
+          <a class="store-badge store-badge-apple" href="#try" aria-label="App Store — sắp ra mắt"><img class="store-brand-icon apple-icon-img" src="assets/app-store-icon.png" alt="App Store" /><span><small>Tải trên</small><strong>App Store</strong></span><em>Sắp ra mắt</em></a>
+          <a class="store-badge store-badge-google" href="#try" aria-label="Google Play — sắp ra mắt"><svg class="store-brand-icon google-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.2 2.4 14 12 3.2 21.6c-.4-.3-.7-.9-.7-1.7V4.1c0-.8.3-1.4.7-1.7Z"/><path fill="#4285F4" d="m3.2 2.4 13 7.3-2.2 2.3L3.2 2.4Z"/><path fill="#FBBC04" d="m14 12 2.2 2.3-13 7.3L14 12Z"/><path fill="#EA4335" d="m16.2 9.7 4.2 2.3c1 .6 1 1.4 0 2l-4.2 2.3-2.2-2.3 2.2-2-2.2-2.3Z"/></svg><span><small>Có mặt trên</small><strong>Google Play</strong></span><em>Sắp ra mắt</em></a>
+          <small>Liên kết tải ứng dụng sẽ được cập nhật khi có trang phát hành chính thức.</small>
+        </div>
+        <small>一緒に頑張ろう！ — Cùng cố gắng nhé!</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-columns">
+      <div class="footer-about"><a class="footer-brand" href="#about"><img src="assets/nihongo-logo-horizontal.png" alt="NihonGO cùng Momo"></a><p>Ứng dụng học tiếng Nhật kết hợp AI và video thực tế. Đồng hành cùng Momo giúp bạn chinh phục JLPT và tự tin giao tiếp.</p><small>Được xây dựng với tình yêu dành cho Nhật ngữ.</small></div>
+      <div class="footer-col"><h3>Khám phá</h3><a href="#about">Giới thiệu NihonGO</a><a href="#features">4 kỹ năng toàn diện</a><a href="#how">Lộ trình học cá nhân hóa</a><a href="#practice">Trải nghiệm bài tập</a><a href="#testimonials">Cảm nhận học viên</a></div>
+      <div class="footer-col"><h3>Tài nguyên</h3><a href="#pricing">Bảng giá gói học</a><a href="#faq">Câu hỏi thường gặp</a><a href="#listening-demo">Luyện nghe mẫu</a><a href="#practice">Câu hỏi N5</a><a href="#">Từ điển Kanji N5–N1 (sắp có)</a></div>
+      <div class="footer-col"><h3>Chính sách &amp; hỗ trợ</h3><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách bảo mật</a><a href="#faq">Chính sách hoàn tiền</a><a href="mailto:support@nihongo.app">support@nihongo.app</a><div class="language-switch">Tiếng Việt <span>/</span> 日本語</div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> NihonGO App. Bản quyền thuộc về đội ngũ phát triển NihonGO.</span><span>Thiết kế thân thiện · Bảo vệ quyền riêng tư</span></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

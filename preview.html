@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="description" content="NihonGO cùng Momo — ứng dụng hỗ trợ học tiếng Nhật với AI, video thực tế và hành trình luyện tập 4 kỹ năng.">
+  <meta property="og:title" content="NihonGO — Học tiếng Nhật cùng Momo">
+  <meta property="og:description" content="Học tiếng Nhật dễ hơn mỗi ngày với NihonGO.">
+  <title>NihonGO — Học tiếng Nhật cùng Momo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900;1000&display=swap" rel="stylesheet">
+  <style>
+/* NihonGO — cohesive design tokens */
+:root{
+ --bg:#fff9f1;--surface:#fffdf9;--ink:#20283d;--muted:#6e7076;--orange:#ff7417;--orange-dark:#e95d0b;
+ --peach:#ffe4c9;--border:#f1e4d5;--cream:#fff0d9;--blue:#dff1ff;--green:#e3f6df;--pink:#fff0f1;
+ --radius:22px;--shadow:0 14px 40px rgba(90,53,23,.08);--container:1380px;
+ font-family:"Nunito Sans",sans-serif;color:var(--ink);background:var(--bg);font-synthesis:none;text-rendering:optimizeLegibility
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(var(--container),calc(100% - 64px));margin-inline:auto}.section{padding-block:78px;position:relative}.skip-link{position:absolute;top:-60px;left:10px;background:white;padding:12px;z-index:100}.skip-link:focus{top:10px}
+.header{height:64px;background:rgba(255,255,255,.91);backdrop-filter:blur(16px);position:sticky;top:0;z-index:30;border-bottom:1px solid #f5e8dc}.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{height:52px;display:flex;align-items:center;overflow:hidden}.brand img{width:146px;height:auto;max-height:43px;object-fit:contain;display:block;mix-blend-mode:multiply}.nav-links{display:flex;align-items:center;gap:clamp(18px,3vw,44px);font-size:13px;font-weight:800}.nav-links>a:not(.nav-cta){transition:color .2s}.nav-links>a:not(.nav-cta):hover{color:var(--orange-dark)}.nav-cta{background:var(--orange);color:#fff;padding:13px 23px;border-radius:999px;box-shadow:0 6px 15px #ff74172a}.nav-cta span{margin-left:10px}.menu-toggle{display:none}
+.hero{min-height:485px;position:relative;overflow:hidden;background:linear-gradient(105deg,#fff1d9 0%,#fff8ed 47%,#cfeafa 100%);padding:43px 0 0}.hero-sky{position:absolute;inset:0;background:radial-gradient(ellipse at 74% 24%,rgba(255,255,255,.75),transparent 34%),linear-gradient(0deg,rgba(255,209,153,.32),transparent 44%);pointer-events:none}.hero:after{content:"";position:absolute;left:-5%;right:-5%;bottom:-80px;height:145px;background:#fffaf2;border-radius:50% 50% 0 0;z-index:0}.hero-layout{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:15px;min-height:405px}.hero-copy{padding:8px 0 25px;z-index:5}.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#ffdec0;font-size:12px;font-weight:900;color:#5c3c2c}.pill span{color:var(--orange-dark)}.hero h1{font-family:Nunito,sans-serif;font-size:clamp(58px,7vw,92px);font-weight:1000;letter-spacing:-5px;line-height:.98;margin:18px 0 5px;color:#20283d}.hero h1 span{color:var(--orange)}.hero h2{font-family:Nunito,sans-serif;font-size:clamp(26px,3.1vw,43px);letter-spacing:-1.5px;line-height:1.13;margin:0 0 14px;font-weight:1000}.hero-description{max-width:560px;font-size:17px;line-height:1.65;color:#666a70;margin:0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:13px;border-radius:999px;padding:15px 24px;font-size:14px;font-weight:900;transition:transform .22s,box-shadow .22s,background .22s;border:1.5px solid transparent}.btn:hover{transform:translateY(-3px)}.btn-primary{background:linear-gradient(135deg,#ff811e,#f45e0b);color:white;box-shadow:0 9px 22px #ff74172b}.btn-primary:hover{box-shadow:0 14px 28px #ff74174d}.btn-secondary{background:#fff7ed;border-color:#ffc89e;color:#8c3b15}.play{font-size:11px}.hero-benefits{display:flex;flex-wrap:wrap;gap:17px;margin-top:22px;font-size:12px;font-weight:700;color:#3f4247}.hero-benefits span{display:flex;align-items:center;gap:6px}.hero-benefits b{width:17px;height:17px;display:inline-grid;place-items:center;border-radius:50%;background:var(--orange);color:white;font-size:10px}
+.hero-art{height:425px;position:relative;perspective:1100px;transform-style:preserve-3d}.art-halo{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,#ffe5d3 0%,#ffd9c6 42%,rgba(255,217,198,0) 70%);left:10%;top:-12px;animation:haloPulse 6s ease-in-out infinite}.speech-bubble{position:absolute;z-index:7;top:20px;left:12%;width:195px;height:110px;display:grid;place-content:center;text-align:center;background:#fffefa;border-radius:52% 48% 50% 44%;box-shadow:0 8px 20px #70401b0b;font-family:serif;font-weight:bold;font-size:20px;line-height:1.35;transform:rotate(-8deg);animation:bubbleFloat 5s ease-in-out infinite}.speech-bubble small{color:#ff8494;font-size:15px;position:absolute;right:22px;bottom:7px}.mascot-wrap{position:absolute;z-index:6;width:360px;height:360px;left:18%;top:53px;transform-style:preserve-3d;will-change:transform;animation:momoBob 5s ease-in-out infinite}.mascot-image{position:absolute;inset:0;display:grid;place-items:center;transform:translateZ(32px);filter:drop-shadow(0 20px 15px rgba(100,50,18,.15));}.mascot-image img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}.mascot-shadow{position:absolute;width:250px;height:38px;bottom:1px;left:55px;background:rgba(125,73,37,.17);border-radius:50%;filter:blur(12px);transform:rotateX(62deg);animation:shadowBreathe 5s ease-in-out infinite}.spark{position:absolute;color:#ff8b9b;z-index:8;font-size:31px;transform:translateZ(60px);animation:sparkle 3s ease-in-out infinite}.spark-a{left:-15px;top:180px}.spark-b{right:20px;top:5px;color:#ffb33e;animation-delay:-1.4s}.phone-mockup{position:absolute;z-index:5;right:1%;top:4px;width:270px;height:490px;background:#fffaf2;border:7px solid #1c2027;border-radius:42px;padding:15px 15px 20px;box-shadow:0 22px 50px rgba(38,43,53,.22);transform:rotate(5deg) translateZ(20px);animation:phoneFloat 6.5s ease-in-out infinite;overflow:hidden}.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:94px;height:17px;border-radius:0 0 12px 12px;background:#1c2027}.phone-status{display:flex;justify-content:space-between;font-size:10px;font-weight:900;padding:2px 7px 14px}.phone-brand{display:flex;align-items:center;gap:5px;font-size:15px}.phone-brand img{width:27px;height:27px;object-fit:cover;object-position:top;border-radius:50%;mix-blend-mode:multiply}.phone-brand b{letter-spacing:-.5px}.phone-brand b span{color:var(--orange)}.streak{margin-left:auto;font-size:10px;background:#fff0db;border-radius:99px;padding:5px}.phone-mockup h3{font-size:20px;margin:18px 0 2px;font-weight:1000}.phone-sub{font-size:9px;color:#777;margin:0 0 15px}.phone-skills{display:grid;grid-template-columns:1fr 1fr;gap:10px}.phone-skill{height:105px;background:#fff;border-radius:17px;box-shadow:0 5px 13px #5c3a1c0a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}.phone-skill>span{font-size:27px;font-weight:900}.phone-skill b{font-size:15px}.phone-skill small{font-size:8px;color:#8a8a8a}.blue>span{color:#4aa9ff}.coral>span{color:#ff684e}.green>span{color:#51b86d}.orange>span{color:#ff9d29}.phone-progress{margin-top:14px;background:#fff;padding:10px;border-radius:12px;font-size:9px;display:grid;grid-template-columns:1fr auto;gap:7px}.phone-progress i{height:5px;border-radius:9px;background:#f0e4d7;grid-column:1/3;overflow:hidden}.phone-progress em{display:block;width:75%;height:100%;background:var(--orange);border-radius:9px}.float-chip{position:absolute;z-index:9;display:flex;align-items:center;gap:10px;padding:10px 13px;background:rgba(255,255,255,.94);border:1px solid #f5e4d4;border-radius:16px;box-shadow:var(--shadow);backdrop-filter:blur(10px);animation:chipFloat 4.8s ease-in-out infinite}.float-chip>span{width:33px;height:33px;border-radius:11px;background:#fff0df;display:grid;place-items:center;color:var(--orange);font-weight:900}.float-chip b{display:block;font-size:11px}.float-chip small{display:block;font-size:9px;color:#777;margin-top:3px}.chip-video{left:0;bottom:58px}.chip-ai{right:3%;bottom:9px;animation-delay:-2s}.torii-silhouette{position:absolute;right:-8px;bottom:22px;width:110px;height:180px;opacity:.35;z-index:1;transform:scale(.85)}.torii-silhouette:before{content:"";position:absolute;top:12px;left:-12px;width:140px;height:14px;background:#c05c36;border-radius:5px;transform:rotate(-2deg)}.torii-silhouette:after{content:"";position:absolute;top:26px;left:0;width:116px;height:9px;background:#c05c36}.torii-silhouette span,.torii-silhouette i{position:absolute;top:28px;bottom:0;width:11px;background:#c05c36;left:15px;transform:skew(-4deg)}.torii-silhouette i{left:84px;transform:skew(4deg)}.torii-silhouette b{position:absolute;top:75px;left:17px;width:78px;height:8px;background:#c05c36}hero-bottom{position:relative;z-index:3;display:flex;align-items:center;gap:14px;padding:0 0 13px;color:#a78f79;font-size:9px;font-weight:900;letter-spacing:2px}.hero-bottom i{height:1px;background:#ead9c7;flex:1}
+.proof-strip{position:relative;z-index:8;margin-top:-1px;display:grid;grid-template-columns:repeat(4,1fr);padding:17px 22px;background:rgba(255,255,255,.94);border:1px solid #f6ece2;border-radius:23px;box-shadow:0 9px 28px rgba(96,59,29,.05)}.proof-item{display:flex;align-items:center;justify-content:center;gap:12px;padding:7px 12px;border-right:1px solid #f3e8dc}.proof-item:last-child{border:0}.proof-icon{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#fff5e7;color:#ffab3e;font-size:25px}.proof-item strong{display:block;font-size:17px;font-weight:1000;letter-spacing:-.4px}.proof-item small{display:block;color:#79777a;font-size:11px;margin-top:3px}
+.challenge-section{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding-top:30px;padding-bottom:40px}.eyebrow{font-size:9px;letter-spacing:1.6px;font-weight:1000;color:#c26c33;margin:0 0 8px}.challenge-left h2,.solution-panel h2,.skills-heading h2,.how-copy h2,.faq-heading h2,.cta-panel h2{font-family:Nunito,sans-serif;font-weight:1000;letter-spacing:-1.1px;line-height:1.12;margin:0 0 18px}.challenge-left h2{font-size:28px}.challenge-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.challenge-card{border:1px solid #f4e9dc;background:linear-gradient(160deg,#fffaf3,#fff5e8);border-radius:19px;padding:14px 12px;text-align:center;min-width:0;transition:transform .25s,box-shadow .25s}.challenge-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.mini-illustration{height:75px;width:100%;position:relative;display:grid;place-items:center;margin-bottom:7px}.mini-illustration b{font-family:serif;font-size:42px;color:#b77c50;text-shadow:2px 2px #f3d3b2}.mini-illustration span{position:absolute;right:18%;top:3px;color:var(--orange);font-weight:1000;font-size:25px}.mini-illustration i{position:absolute;left:15%;top:15px;color:#6ba5ce;font-size:24px;font-style:normal}.practice b{font-size:25px;color:#7c9c78}.motivation b{font-family:Nunito;font-size:28px;color:#d5a1a0}.challenge-card h3{font-size:13px;line-height:1.3;margin:0 0 7px;font-weight:1000}.challenge-card p{font-size:10px;line-height:1.55;color:#777;margin:0}.solution-panel{position:relative;display:flex;align-items:center;overflow:hidden;min-height:285px;border-radius:24px;padding:25px 24px;background:linear-gradient(120deg,#fff0d9,#fff5e7)}.solution-copy{position:relative;z-index:2;max-width:78%}.solution-panel h2{font-size:24px;margin-bottom:17px}.solution-panel h2 span,.solution-panel h2 em{color:var(--orange-dark);font-style:normal}.solution-panel ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}.solution-panel li{font-size:11px;line-height:1.45;display:flex;align-items:flex-start;gap:8px}.solution-panel li:before{content:"✓";width:17px;height:17px;flex:0 0 17px;border-radius:50%;background:var(--orange);color:white;font-size:10px;font-weight:1000;display:grid;place-items:center}.reading-momo{position:absolute;right:-12px;bottom:5px;width:165px;height:190px;transform:rotate(-5deg);animation:readingBob 5.5s ease-in-out infinite}.reading-momo img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:drop-shadow(0 12px 9px #8e562124)}.reading-momo .book{position:absolute;bottom:20px;left:40px;background:#3d8455;color:#fff8d9;font-family:serif;font-weight:900;padding:7px 10px;border-radius:5px;transform:rotate(4deg);font-size:11px;box-shadow:0 3px 0 #275f3a}.flower{position:absolute;top:15px;left:0;color:#ff9f9f;font-size:28px}
+.skills-section{padding-top:34px;padding-bottom:85px}.skills-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.skills-heading h2{font-size:28px;margin-bottom:7px}.skills-heading p:not(.eyebrow){margin:0;color:#73757a;font-size:13px}.text-link{font-size:12px;font-weight:1000;color:#b65c25;white-space:nowrap}.text-link span{margin-left:7px}.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.skill-card{display:flex;align-items:center;gap:14px;position:relative;padding:16px;border-radius:20px;min-height:135px;transition:transform .25s,box-shadow .25s;overflow:hidden}.skill-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.skill-listen{background:#fff0f3}.skill-speak{background:#e7f4ff}.skill-read{background:#e9f8e7}.skill-write{background:#fff2df}.skill-art{width:64px;height:70px;flex:0 0 64px;display:grid;place-items:center;position:relative}.skill-art b{font-size:39px;font-family:serif}.skill-listen .skill-art{color:#ff5b83}.sound-wave{position:absolute;font-size:25px;font-weight:1000;letter-spacing:-7px;left:0;transform:rotate(180deg)}.skill-speak .skill-art{color:#379af0}.skill-speak .skill-art b{font-size:25px;background:#fff;border-radius:50%;width:40px;height:40px;display:grid;place-items:center}.skill-read .skill-art{color:#48ae5c}.skill-read .skill-art span{position:absolute;bottom:1px;font-size:10px;font-weight:1000}.skill-write .skill-art{color:#ff941f}.skill-write .skill-art span{position:absolute;right:1px;top:2px;font-size:25px}.skill-card h3{margin:0 0 5px;font-size:18px;font-weight:1000}.skill-card h3 small{display:block;font-size:10px;font-weight:800;margin-top:2px;opacity:.75}.skill-card p{font-size:10px;line-height:1.5;color:#686b70;margin:0}.skill-arrow{position:absolute;right:12px;top:10px;opacity:0;transform:translate(-3px,3px);transition:.2s}.skill-card:hover .skill-arrow{opacity:.65;transform:none}
+.how-section{background:#242638;color:#fff9f1;overflow:hidden}.how-section:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:#ff8a3414;right:-150px;top:-210px}.how-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;position:relative}.how-copy .eyebrow{color:#ffb87b}.how-copy h2{font-size:clamp(36px,4.4vw,52px);margin-bottom:17px}.how-copy h2 span{color:#ffad68}.how-copy>p:not(.eyebrow){color:#c7c4cc;font-size:14px;line-height:1.8;max-width:410px;margin-bottom:24px}.how-steps{border-top:1px solid #494b5b}.how-steps article{display:grid;grid-template-columns:40px 1fr 30px;gap:13px;padding:20px 0;border-bottom:1px solid #494b5b;align-items:start}.how-steps article>span{color:#ffb87b;font-size:11px;font-weight:1000;padding-top:4px}.how-steps h3{margin:0 0 5px;font-size:16px}.how-steps p{margin:0;color:#c7c4cc;font-size:12px;line-height:1.6}.how-steps article>b{color:#ffb87b;text-align:right;font-size:19px}
+.faq-section{display:grid;grid-template-columns:.7fr 1.3fr;gap:55px}.faq-heading h2{font-size:34px}.faq-heading>p:last-child{font-size:13px;color:#74747a}.faq-list details{border-bottom:1px solid var(--border);padding:18px 0}.faq-list details:first-child{border-top:1px solid var(--border)}.faq-list summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:15px;list-style:none;font-size:14px;font-weight:900}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{color:var(--orange);font-size:22px;transition:transform .2s}.faq-list details[open] summary span{transform:rotate(45deg)}.faq-list details p{font-size:12px;line-height:1.8;color:var(--muted);max-width:650px;margin:12px 0 0}
+.cta-section{padding-top:5px;padding-bottom:85px}.cta-panel{position:relative;text-align:center;overflow:hidden;border-radius:28px;padding:63px 20px;background:linear-gradient(130deg,#fff0d9,#fffaf3 55%,#ffe7d2);border:1px solid #f5e5d5}.cta-panel h2{font-size:clamp(36px,4.8vw,54px);margin-bottom:13px}.cta-panel h2 span{color:var(--orange)}.cta-panel>p:not(.eyebrow){font-size:13px;color:#777;margin:0}.btn-large{margin-top:22px;padding:17px 28px}.cta-panel>small{display:block;font-size:10px;color:#a48d78;margin-top:15px}.cta-decoration{position:absolute;right:9%;top:22px;width:54px;height:54px;border-radius:16px;background:#fff;border:1px solid #f3ddc9;box-shadow:0 8px 18px #8c4c1c12;display:grid;place-items:center;color:#e96a16;font-weight:1000;transform:rotate(8deg)}.cta-decoration span{font-family:serif;font-size:24px}.cta-decoration i{position:absolute;right:-7px;bottom:-5px;width:20px;height:20px;border-radius:50%;background:#e6f5df;color:#37944b;border:2px solid #fff;display:grid;place-items:center;font-size:11px;font-style:normal}
+.footer{background:#fff;border-top:1px solid #f1e5d9}.footer-main{display:flex;align-items:center;justify-content:space-between;gap:22px;padding-block:25px}.footer-brand img{width:170px;height:auto;mix-blend-mode:multiply}.footer-main>p{font-size:12px;color:#777;margin:0}.footer-main nav{display:flex;gap:22px;font-size:11px;font-weight:800}.footer-bottom{border-top:1px solid #f1e5d9;padding-block:15px;display:flex;justify-content:space-between;color:#999;font-size:10px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.is-visible{opacity:1;transform:translateY(0)}
+@keyframes momoBob{0%,100%{transform:translate3d(0,0,0) rotateZ(-1deg) rotateY(-3deg)}50%{transform:translate3d(0,-14px,18px) rotateZ(1.5deg) rotateY(4deg)}}@keyframes phoneFloat{0%,100%{transform:rotate(5deg) translateY(0) translateZ(20px)}50%{transform:rotate(3deg) translateY(-9px) translateZ(25px)}}@keyframes readingBob{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-1deg) translateY(-8px)}}@keyframes shadowBreathe{0%,100%{transform:scaleX(1) rotateX(62deg);opacity:.65}50%{transform:scaleX(.82) rotateX(62deg);opacity:.35}}@keyframes bubbleFloat{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(-5deg)}}@keyframes chipFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(1deg)}}@keyframes sparkle{0%,100%{transform:translateY(0) scale(1) rotate(0)}50%{transform:translateY(-9px) scale(1.18) rotate(15deg)}}@keyframes haloPulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.08);opacity:1}}
+@media(max-width:1100px){.hero-layout{grid-template-columns:.92fr 1.08fr}.hero-art{transform:scale(.9);transform-origin:center right;margin-left:-25px}.hero h1{font-size:72px}.hero h2{font-size:31px}.phone-mockup{right:-5%}.mascot-wrap{left:12%}.float-chip{transform:scale(.9)}.challenge-section{grid-template-columns:1fr}.solution-panel{min-height:250px}.reading-momo{right:35px}.how-grid{gap:45px}.proof-item{padding-inline:5px}.proof-item strong{font-size:15px}}
+@media(max-width:760px){.container{width:calc(100% - 36px)}.header{height:62px}.brand img{width:136px;max-height:40px}.menu-toggle{display:flex;width:40px;height:40px;border:1px solid #f0e0d0;border-radius:50%;background:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:16px;height:2px;background:#26283a;border-radius:5px}.nav-links{display:none;position:absolute;top:57px;left:18px;right:18px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.nav-links.is-open{display:flex}.nav-links>a{padding:13px 9px}.nav-links .nav-cta{text-align:center;margin-top:5px}.hero{padding-top:32px}.hero-layout{grid-template-columns:1fr;gap:0}.hero-copy{padding-bottom:0}.hero h1{font-size:70px;letter-spacing:-4px}.hero h2{font-size:29px}.hero-description{font-size:14px;max-width:480px}.hero-actions{gap:9px}.btn{padding:13px 18px;font-size:12px}.hero-benefits{gap:10px 14px;font-size:10px}.hero-art{height:380px;transform:none;margin:0 -12px}.art-halo{width:320px;height:320px;left:calc(50% - 170px);top:35px}.mascot-wrap{width:280px;height:280px;left:calc(50% - 155px);top:65px}.phone-mockup{width:200px;height:365px;right:0;top:10px;border-width:5px;border-radius:31px;padding:11px}.phone-status{font-size:8px;padding-bottom:9px}.phone-brand{font-size:11px}.phone-brand img{width:21px;height:21px}.phone-mockup h3{font-size:16px;margin-top:12px}.phone-sub{font-size:7px;margin-bottom:10px}.phone-skills{gap:6px}.phone-skill{height:76px;border-radius:12px;gap:2px}.phone-skill>span{font-size:19px}.phone-skill b{font-size:11px}.phone-skill small{font-size:6px}.phone-progress{margin-top:8px;padding:7px;font-size:7px}.speech-bubble{width:145px;height:80px;font-size:15px;top:18px;left:0}.float-chip{padding:8px 10px;gap:7px}.float-chip>span{width:27px;height:27px}.float-chip b{font-size:9px}.float-chip small{font-size:7px}.chip-video{left:0;bottom:36px}.chip-ai{right:0;bottom:0}.hero-bottom{font-size:7px;letter-spacing:1px}.proof-strip{grid-template-columns:1fr 1fr;padding:10px;margin-top:0;border-radius:17px}.proof-item{justify-content:flex-start;border-right:0;padding:10px 6px}.proof-item:nth-child(odd){border-right:1px solid #f3e8dc}.proof-item strong{font-size:13px}.proof-item small{font-size:9px}.proof-icon{width:37px;height:37px;font-size:20px}.section{padding-block:55px}.challenge-section{padding-top:35px;padding-bottom:35px}.challenge-left h2{font-size:24px}.challenge-cards{gap:7px}.challenge-card{padding:10px 6px;border-radius:14px}.mini-illustration{height:56px}.mini-illustration b{font-size:30px}.mini-illustration span{font-size:18px}.mini-illustration i{font-size:18px}.challenge-card h3{font-size:10px}.challenge-card p{font-size:9px}.solution-panel{padding:22px 17px;min-height:295px}.solution-copy{max-width:100%;padding-right:52px}.solution-panel h2{font-size:21px}.solution-panel li{font-size:10px;max-width:300px}.reading-momo{width:110px;height:130px;right:-10px;bottom:-1px;opacity:.9}.reading-momo .book{font-size:8px;left:26px;bottom:15px;padding:4px 6px}.reading-icon{position:absolute;top:18px;left:4px;width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#e96a16;font-size:14px;font-weight:1000;box-shadow:0 4px 10px #8e562124}.skills-section{padding-top:30px}.skills-heading{display:block}.skills-heading h2{font-size:24px}.skills-heading p:not(.eyebrow){font-size:11px}.skills-heading .text-link{display:inline-block;margin-top:14px}.skill-grid{grid-template-columns:1fr 1fr;gap:9px}.skill-card{padding:11px;gap:8px;min-height:112px;border-radius:15px}.skill-art{width:43px;height:52px;flex-basis:43px}.skill-art b{font-size:30px}.skill-card h3{font-size:15px}.skill-card h3 small{font-size:8px}.skill-card p{font-size:9px}.how-grid{grid-template-columns:1fr;gap:30px}.how-copy h2{font-size:38px}.how-copy>p:not(.eyebrow){font-size:12px}.how-steps article{padding:16px 0}.faq-section{grid-template-columns:1fr;gap:20px}.faq-heading h2{font-size:29px}.cta-section{padding-top:0;padding-bottom:55px}.cta-panel{padding:52px 15px;border-radius:21px}.cta-panel h2{font-size:35px}.cta-panel>p:not(.eyebrow){font-size:11px}.footer-main{flex-wrap:wrap;gap:14px}.footer-brand img{width:140px}.footer-main>p{order:3;width:100%}.footer-main nav{gap:12px;font-size:10px}.footer-bottom{font-size:9px;gap:8px;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+
+/* Fix: keep the brand logo fully visible instead of cropping it inside the header. */
+.brand{height:56px;min-width:0;max-width:230px;overflow:visible;flex:0 1 230px}
+.brand img{display:block;width:100%;max-width:220px;height:auto;max-height:48px;object-fit:contain;object-position:left center;mix-blend-mode:normal}
+.mascot-image{overflow:visible}
+.mascot-image img{display:block;position:relative;z-index:1;width:100%;height:100%;object-fit:contain;mix-blend-mode:normal}
+.momo-blink{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.blink-eyes{opacity:0;transform-origin:center;animation:momoBlink 5.2s infinite}
+@keyframes momoBlink{
+  0%, 43%, 45%, 78%, 80%, 100%{opacity:0}
+  44%, 79%{opacity:1}
+}
+@media(max-width:760px){
+  .brand{height:48px;max-width:185px;flex-basis:185px}
+  .brand img{max-width:178px;max-height:42px}
+}
+
+:focus-visible{outline:3px solid #f28a36;outline-offset:3px}
+
+/* Additional content sections: listening demo, quiz, testimonials, pricing */
+.section-intro{max-width:760px;margin:0 auto 30px;text-align:center}.section-intro h2,.section-heading-centered h2{font-family:Nunito,sans-serif;font-weight:1000;letter-spacing:-1px;font-size:clamp(28px,3.5vw,40px);line-height:1.15;margin:0 0 12px}.section-intro h2 span{color:var(--orange)}.section-intro>p:last-child,.section-heading-centered>p:last-child{color:var(--muted);font-size:14px;line-height:1.7;margin:0}.listening-section{padding-top:65px;padding-bottom:70px;background:linear-gradient(180deg,#fffaf3,#fff4e7)}.listening-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:stretch}.listening-copy,.dialogue-card{border:1px solid #f0e2d2;border-radius:24px;background:#fffdfa;padding:26px;box-shadow:0 12px 34px rgba(80,50,25,.05)}.feature-points{display:grid;gap:20px}.feature-points>div{display:flex;gap:13px;align-items:flex-start}.feature-icon{width:44px;height:44px;flex:0 0 44px;border-radius:14px;background:#fff0df;color:#e96a16;display:grid;place-items:center;font-weight:1000;font-size:17px}.feature-points b{display:block;font-size:14px;margin:2px 0 5px}.feature-points small{font-size:12px;color:var(--muted);line-height:1.6}.listening-note{background:#fff6e9;border-radius:15px;padding:16px;margin-top:25px}.listening-note b{font-size:12px;color:#a9541c}.listening-note p{font-size:12px;color:#67676d;line-height:1.65;margin:6px 0 0}.dialogue-card{background:linear-gradient(145deg,#fff,#fffaf4);border-color:#f5e3cf}.dialogue-top{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.2px;font-weight:1000;color:#a5683d}.live-dot{width:8px;height:8px;border-radius:50%;background:#42b878;box-shadow:0 0 0 4px #42b8781d}.level-tag{margin-left:auto;padding:5px 10px;border-radius:99px;background:#fff0df;color:#c35d19;letter-spacing:0}.dialogue-label{font-size:12px;color:#777;margin:22px 0 13px}.japanese-line{font-family:"Noto Sans JP","Yu Gothic",sans-serif;font-size:clamp(18px,2vw,25px);font-weight:900;line-height:1.6;color:var(--ink)}.furigana-line{font-family:"Noto Sans JP","Yu Gothic",sans-serif;font-size:12px;color:#c16a30;margin-top:6px}.furigana-line.is-hidden{display:none}.romaji-line{font-size:12px;color:#8c8b8a;font-style:italic;margin-top:12px}.meaning-line{font-size:13px;line-height:1.65;background:#fff3e5;border-radius:12px;padding:12px;margin-top:18px}.dialogue-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.btn-small{padding:10px 14px;font-size:11px}.audio-note{font-size:10px;color:#999;margin:12px 0 0}.quiz-section{background:#fff9f1;padding-block:65px}.quiz-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:45px;align-items:center;background:white;border:1px solid #f3e6d8;border-radius:28px;padding:32px;box-shadow:var(--shadow)}.quiz-momo{position:relative;min-height:290px;display:grid;place-items:center;background:radial-gradient(circle,#fff1d9,transparent 70%);border-radius:22px}.quiz-momo img{width:min(100%,300px);max-height:300px;object-fit:contain;mix-blend-mode:multiply;animation:readingBob 5s ease-in-out infinite}.exp-badge{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:#242638;color:#fff;border-radius:99px;padding:9px 17px;font-size:11px;white-space:nowrap;box-shadow:0 7px 18px #20283d20}.exp-badge b{color:#ffc16a;margin-left:5px}.quiz-content h2{font-family:Nunito,sans-serif;font-size:clamp(26px,3vw,36px);font-weight:1000;letter-spacing:-.8px;line-height:1.15;margin:0 0 12px}.quiz-lead{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 17px}.quiz-options{display:grid;gap:9px}.quiz-option{width:100%;text-align:left;border:1px solid #f0e4d8;background:#fffdfa;border-radius:13px;padding:12px 14px;cursor:pointer;transition:border-color .2s,background .2s,transform .2s;color:var(--ink)}.quiz-option:hover{border-color:#ffb27b;transform:translateX(2px)}.quiz-option span{display:block;font-family:"Noto Sans JP","Yu Gothic",sans-serif;font-weight:900;font-size:15px}.quiz-option small{display:block;color:#7a7b80;font-size:10px;margin-top:4px}.quiz-option.correct{border-color:#5cb981;background:#effbf3}.quiz-option.incorrect{border-color:#ed8e83;background:#fff2f0}.quiz-option:disabled{cursor:default}.quiz-feedback{min-height:22px;font-size:12px;font-weight:800;color:#a65b26;margin:13px 0 5px}.quiz-feedback.good{color:#27834e}.quiz-feedback.bad{color:#c34d40}.quiz-reset{border:0;background:transparent;cursor:pointer;padding:5px 0}.section-heading-centered{text-align:center;max-width:820px;margin:0 auto 32px}.section-heading-centered .eyebrow{margin-bottom:10px}.testimonials-section{padding-top:75px;padding-bottom:75px}.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.testimonial-card{position:relative;background:#fff;border:1px solid #f0e4d8;border-radius:22px;padding:24px 21px 18px;box-shadow:0 10px 28px rgba(80,50,25,.04);display:flex;flex-direction:column;min-height:335px}.quote-mark{position:absolute;right:18px;top:4px;font-family:Georgia,serif;font-size:60px;color:#ffe0bf;line-height:1}.rating-stars{color:#ffad35;letter-spacing:3px;font-size:13px;margin-bottom:14px}.testimonial-card blockquote{font-size:12px;line-height:1.8;color:#62636a;margin:0 0 21px;flex:1}.reviewer{display:flex;align-items:center;gap:10px}.reviewer-avatar{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:50%;background:#ffead5;color:#a84f19;font-size:11px;font-weight:1000}.reviewer-photo{display:block;object-fit:cover;object-position:center;width:46px;height:46px;flex:0 0 46px;border:2px solid #ffead5;background:#ffead5}.reviewer b{display:block;font-size:12px}.reviewer small{display:block;font-size:10px;color:#85858a;margin-top:3px}.review-result{margin-top:15px;padding-top:12px;border-top:1px solid #f2e7dc;color:#b85d22;font-size:10px;font-weight:900}.content-disclaimer,.pricing-disclaimer{font-size:10px;line-height:1.7;color:#8b8580;text-align:center;margin:20px auto 0;max-width:900px}.pricing-section{background:linear-gradient(180deg,#fff3e3,#fffaf3);padding-block:75px}.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;align-items:stretch}.price-card{position:relative;background:#fff;border:1px solid #efdfce;border-radius:23px;padding:25px 22px 20px;display:flex;flex-direction:column;box-shadow:0 12px 30px rgba(80,50,25,.045)}.price-featured{border:2px solid var(--orange);box-shadow:0 17px 40px rgba(255,116,23,.13);transform:translateY(-8px)}.popular-label{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:99px;padding:7px 14px;background:var(--orange);color:#fff;font-size:9px;letter-spacing:1px;font-weight:1000}.plan-kicker{font-size:9px;font-weight:1000;letter-spacing:1.2px;color:#bb713d}.price-card h3{font-family:Nunito,sans-serif;font-size:24px;letter-spacing:-.6px;margin:9px 0 7px;font-weight:1000}.price-card h3 small{font-family:"Nunito Sans",sans-serif;font-size:12px;color:#777;font-weight:700}.price-card-top p{font-size:11px;line-height:1.7;color:#74747a;min-height:58px;margin:0}.price{padding:17px 0 13px;margin-top:10px;border-top:1px solid #f2e6db;display:flex;flex-direction:column;gap:2px}.price strong{font-family:Nunito,sans-serif;font-size:31px;letter-spacing:-1px;color:#20283d}.price span{font-size:11px;color:#777}.saving-note{font-size:9px;color:#bc652c;margin:-5px 0 9px}.price-card ul{list-style:none;padding:0;margin:9px 0 20px;display:grid;gap:12px;flex:1}.price-card li{position:relative;padding-left:22px;font-size:11px;line-height:1.55;color:#555963}.price-card li:before{content:"✓";position:absolute;left:0;top:0;width:15px;height:15px;display:grid;place-items:center;border-radius:50%;background:#e7f8eb;color:#27834e;font-size:9px;font-weight:1000}.price-cta{width:100%;margin-top:auto}.price-foot{display:block;text-align:center;font-size:9px;color:#999;margin-top:12px}.pricing-disclaimer{padding:0 15px}.cta-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.store-placeholder{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0 5px}.store-placeholder>span{display:flex;align-items:center;gap:8px;background:#242638;color:white;padding:10px 14px;border-radius:12px;font-size:17px}.store-placeholder b{font-size:10px}.store-placeholder small{width:100%;font-size:9px;color:#999}.footer-columns{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:30px;padding-block:35px}.footer-about p{font-size:11px;line-height:1.8;color:#73737a;max-width:300px}.footer-about>small{font-size:10px;color:#a17a5a}.footer-col{display:flex;flex-direction:column;align-items:flex-start;gap:11px}.footer-col h3{font-size:12px;margin:4px 0 5px}.footer-col a,.language-switch{font-size:10px;color:#73737a;line-height:1.5}.footer-col a:hover{color:var(--orange-dark)}.language-switch{margin-top:7px;padding:8px 10px;border:1px solid #f0e2d5;border-radius:9px}.language-switch span{padding-inline:5px;color:#d4a37e}
+@media(max-width:1000px){.listening-grid{grid-template-columns:1fr 1fr}.quiz-layout{gap:25px;padding:24px}.testimonial-grid{gap:11px}.testimonial-card{padding:20px 15px}.pricing-grid{gap:11px}.price-card{padding:23px 16px 18px}.footer-columns{gap:18px}}
+@media(max-width:760px){.listening-section,.testimonials-section,.pricing-section{padding-block:52px}.listening-grid,.quiz-layout{grid-template-columns:1fr}.listening-copy,.dialogue-card{padding:20px}.quiz-layout{padding:17px;gap:12px}.quiz-momo{min-height:190px;max-height:210px}.quiz-momo img{max-height:205px;width:220px}.quiz-content h2{font-size:27px}.testimonial-grid,.pricing-grid{grid-template-columns:1fr}.testimonial-card{min-height:unset}.price-featured{transform:none;margin-top:8px}.price-card-top p{min-height:unset}.section-heading-centered{margin-bottom:24px}.section-heading-centered h2{font-size:28px}.footer-columns{grid-template-columns:1fr 1fr;gap:25px 18px}.footer-about{grid-column:1/-1}.store-placeholder>span{font-size:15px}.store-placeholder b{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.quiz-momo img{animation:none}}
+
+/* Real NihonGO app screenshot inside the existing phone frame */
+.phone-mockup-real{
+  padding:0;
+  background:#fff8f1;
+  aspect-ratio:942 / 2048;
+  height:auto;
+  min-height:0;
+  width:clamp(225px, 20vw, 285px);
+  border:7px solid #1c2027;
+  border-radius:42px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.phone-mockup-real .app-screen-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:34px;
+}
+@media(max-width:760px){
+  .phone-mockup-real{width:clamp(190px, 43vw, 250px);border-width:6px;border-radius:34px}
+  .phone-mockup-real .app-screen-image{border-radius:27px}
+}
+
+/* Consistent Lucide-style outline icon system: local inline SVGs, no external JS/CDN dependency */
+.ui-icon{display:block;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.proof-icon .ui-icon{width:23px;height:23px}
+.pill-icon .ui-icon{width:16px;height:16px}
+.play .ui-icon{width:12px;height:12px;fill:currentColor;stroke-width:1.4}
+.feature-icon .ui-icon{width:23px;height:23px}
+.skill-art>.ui-icon{width:36px;height:36px;stroke-width:1.7}
+.mini-illustration{display:flex;align-items:center;justify-content:center}
+.mini-illustration>.ui-icon{width:42px;height:42px;stroke-width:1.7}
+.memory>.ui-icon{color:#c78352}
+.practice>.ui-icon{color:#739a7b}
+.motivation>.ui-icon{color:#e98638}
+.how-steps article>b .ui-icon{width:24px;height:24px}
+.exp-badge>.ui-icon{width:13px;height:13px;display:inline-block;vertical-align:-2px;margin-right:4px;stroke:#ffc16a}
+.dialogue-top>.ui-icon{width:15px;height:15px;display:inline-block;vertical-align:-3px;margin-right:6px}
+.cta-decoration>.ui-icon{width:48px;height:48px;stroke:currentColor}
+.store-placeholder .ui-icon{width:13px;height:13px;display:inline-block;vertical-align:-2px}
+.proof-icon.bars .ui-icon{width:24px;height:24px}
+@media (prefers-reduced-motion: reduce){.ui-icon{transition:none!important}}
+
+/* Store badges: secondary app-download actions near the primary hero CTA */
+.hero-store-links{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:17px}
+.hero-store-label{flex-basis:100%;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:#8d8178;margin-bottom:1px}
+.store-badge{display:inline-flex;align-items:center;gap:9px;min-height:43px;padding:7px 12px;border:1px solid #e9e1da;border-radius:12px;background:#252638;color:#fff;text-decoration:none;box-shadow:0 4px 12px rgba(32,40,61,.08);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.store-badge:hover{transform:translateY(-2px);box-shadow:0 7px 17px rgba(32,40,61,.14);border-color:#ffb16c}
+.store-brand-icon{width:23px;height:23px;flex:0 0 auto}
+.store-badge span{display:flex;flex-direction:column;gap:1px;line-height:1.1}
+.store-badge small{font-size:8px;font-weight:600;opacity:.82}
+.store-badge strong{font-size:12px;font-weight:900;white-space:nowrap}
+.store-badge em{font-style:normal;font-size:8px;white-space:nowrap;color:#ffcf9f;border-left:1px solid rgba(255,255,255,.22);padding-left:8px;margin-left:2px}
+.store-placeholder{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0 5px}
+.store-placeholder .store-badge{min-width:160px;justify-content:flex-start}
+.store-placeholder>small{width:100%;font-size:9px;color:#999;text-align:center}
+@media(max-width:760px){
+ .hero-store-links{gap:7px;margin-top:15px}
+ .hero-store-label{font-size:9px}
+ .store-badge{min-height:41px;padding:7px 10px;gap:7px}
+ .store-brand-icon{width:20px;height:20px}
+ .store-badge strong{font-size:11px}
+ .store-badge em{font-size:7px;padding-left:6px}
+}
+@media(max-width:420px){
+ .hero-store-links .store-badge{flex:1;min-width:0}
+ .hero-store-links .store-badge em{display:none}
+}
+
+/* Stronger, recognizable platform logos on the download badges */
+.store-badge .store-brand-icon{width:29px;height:29px;display:block;flex:0 0 29px}
+.store-badge .apple-icon{color:#fff}
+.store-badge .google-play-icon{filter:drop-shadow(0 0 1px rgba(255,255,255,.14))}
+.store-badge{gap:10px}
+.store-badge span{min-width:0}
+.store-badge strong{font-size:12px}
+@media(max-width:760px){
+  .store-badge .store-brand-icon{width:25px;height:25px;flex-basis:25px}
+}
+
+/* Use the supplied high-resolution App Store icon asset */
+.store-badge .apple-icon-img{
+  display:block;
+  width:29px;
+  height:29px;
+  flex:0 0 29px;
+  object-fit:contain;
+  border-radius:7px;
+}
+@media(max-width:760px){
+  .store-badge .apple-icon-img{width:25px;height:25px;flex-basis:25px;border-radius:6px}
+}
+
+/* Language selector — custom dropdown (native select stays hidden for state sync) */
+.language-picker{position:relative;display:inline-flex;align-items:center;gap:8px;min-width:0;border:1px solid #f0dfcf;background:rgba(255,250,245,.96);border-radius:999px;padding:7px 12px;color:#b65319;flex:0 0 auto;box-shadow:0 2px 7px rgba(110,65,30,.025);transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;z-index:30}
+.language-picker:hover,.language-picker.is-open{border-color:#f2b783;background:#fffdf9;box-shadow:0 5px 16px rgba(160,91,35,.10)}
+.language-picker-icon{display:block;width:22px;height:22px;object-fit:contain;flex:0 0 22px}
+.language-trigger{display:inline-flex;align-items:center;justify-content:space-between;gap:9px;min-width:104px;padding:3px 0;border:0;background:transparent;color:#303447;font:800 12px/1.3 'Nunito Sans',sans-serif;cursor:pointer;white-space:nowrap}
+.language-trigger:focus-visible{outline:2px solid #f49a55;outline-offset:4px;border-radius:5px}
+.language-chevron{flex:0 0 auto;color:#9b6b4b;transition:transform .18s ease}
+.language-picker.is-open .language-chevron{transform:rotate(180deg)}
+.language-menu{position:absolute;top:calc(100% + 9px);right:0;min-width:174px;padding:6px;background:#fffdf9;border:1px solid #f0dfcf;border-radius:15px;box-shadow:0 14px 34px rgba(53,38,26,.15);z-index:1000;overflow:hidden;transform-origin:top right;animation:languageMenuIn .16s ease-out}
+.language-menu[hidden]{display:none}
+.language-option{display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%;padding:10px 11px;border:0;border-radius:9px;background:transparent;color:#424253;text-align:left;font:600 12px/1.25 'Nunito Sans',sans-serif;cursor:pointer;transition:background .15s ease,color .15s ease}
+.language-option:hover{background:#fff1e3;color:#a94c12}
+.language-option.is-selected{background:#fff0df;color:#a94c12;font-weight:900}
+.language-check{width:15px;flex:0 0 15px;text-align:center;color:#e87521;opacity:0}
+.language-option.is-selected .language-check{opacity:1}
+.language-select-native{display:none!important;visibility:hidden!important;position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
+@keyframes languageMenuIn{from{opacity:0;transform:translateY(-4px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:760px){.language-picker{margin:8px 4px;padding:9px 12px;border-radius:999px;order:2}.language-trigger{min-width:116px;font-size:13px}.language-menu{left:0;right:auto;min-width:190px}.nav-links .nav-cta{order:3}}
+@media(prefers-reduced-motion:reduce){.language-menu,.language-chevron{animation:none;transition:none}}
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="NihonGO trang chủ">
+        <img src="assets/nihongo-logo-horizontal.png" alt="Logo NihonGO với mascot Momo">
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Mở menu"><span></span><span></span></button>
+      <nav id="nav-links" class="nav-links" aria-label="Điều hướng chính">
+        <a href="#about">Giới thiệu</a>
+        <a href="#features">Tính năng</a>
+        <a href="#how">Cách hoạt động</a>
+        <a href="#pricing">Bảng giá</a>
+        <a href="#faq">FAQ</a>
+        <div class="language-picker" id="language-picker">
+          <img class="language-picker-icon" src="assets/language-translate-icon.png" alt="" aria-hidden="true">
+          <button class="language-trigger" id="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu">
+            <span id="language-current">Vietnamese</span>
+            <svg class="language-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="language-menu" id="language-menu" role="listbox" aria-label="Choose language" hidden>
+            <button type="button" class="language-option is-selected" role="option" aria-selected="true" data-lang="vi">Vietnamese <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="en">English <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="ja">Japanese <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="km">Khmer <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="id">Indonesian <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="ms">Malay <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="th">Thai <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="es">Spanish <span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" class="language-option" role="option" aria-selected="false" data-lang="de">German <span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
+          <select id="language-select" class="language-select-native" aria-label="Select language" tabindex="-1" aria-hidden="true">
+            <option value="vi" selected>Vietnamese</option><option value="en">English</option><option value="ja">Japanese</option><option value="km">Khmer</option><option value="id">Indonesian</option><option value="ms">Malay</option><option value="th">Thai</option><option value="es">Spanish</option><option value="de">German</option>
+          </select>
+        </div>
+        <a class="nav-cta" href="#try">Trải nghiệm ngay <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="about">
+      <div class="hero-sky"></div>
+      
+      <div class="torii-silhouette" aria-hidden="true"><span></span><i></i><b></b></div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="pill"><span class="pill-icon" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13"/><path d="M3 18a2 2 0 0 0 2 2h3a4 4 0 0 1 4 2 4 4 0 0 1 4-2h3a2 2 0 0 0 2-2"/></svg></span> Học tiếng Nhật dễ hơn mỗi ngày</div>
+          <h1>Nihon<span>GO</span></h1>
+          <h2>Học tiếng Nhật cùng Momo</h2>
+          <p class="hero-description">Ứng dụng hỗ trợ bạn phát triển toàn diện 4 kỹ năng tiếng Nhật với AI, video thực tế và lộ trình học cá nhân hóa.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#try">Trải nghiệm ngay <span>→</span></a>
+            <a class="btn btn-secondary" href="#features"><span class="play"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Tìm hiểu thêm</a>
+          </div>
+          <div class="hero-benefits">
+            <span><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b> Học với video thực tế</span>
+            <span><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b> AI hỗ trợ cá nhân hóa</span>
+            <span><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b> Học mọi lúc, mọi nơi</span>
+          </div>
+          <div class="hero-store-links" aria-label="Tải ứng dụng NihonGO">
+            <span class="hero-store-label">Ứng dụng di động</span>
+            <a class="store-badge store-badge-apple" href="#try" aria-label="App Store — liên kết phát hành sẽ được cập nhật">
+              <img class="store-brand-icon apple-icon-img" src="assets/app-store-icon.png" alt="App Store" />
+              <span><small>Tải trên</small><strong>App Store</strong></span>
+              <em>Sắp ra mắt</em>
+            </a>
+            <a class="store-badge store-badge-google" href="#try" aria-label="Google Play — liên kết phát hành sẽ được cập nhật">
+              <svg class="store-brand-icon google-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.2 2.4 14 12 3.2 21.6c-.4-.3-.7-.9-.7-1.7V4.1c0-.8.3-1.4.7-1.7Z"/><path fill="#4285F4" d="m3.2 2.4 13 7.3-2.2 2.3L3.2 2.4Z"/><path fill="#FBBC04" d="m14 12 2.2 2.3-13 7.3L14 12Z"/><path fill="#EA4335" d="m16.2 9.7 4.2 2.3c1 .6 1 1.4 0 2l-4.2 2.3-2.2-2.3 2.2-2-2.2-2.3Z"/></svg>
+              <span><small>Có mặt trên</small><strong>Google Play</strong></span>
+              <em>Sắp ra mắt</em>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" id="momo-scene" aria-label="Momo đồng hành cùng ứng dụng NihonGO">
+          <div class="art-halo"></div>
+          <div class="speech-bubble">一緒に<br>日本語を学ぼう！<small>♥</small></div>
+          <div class="mascot-wrap" id="momo-tilt">
+            <div class="mascot-shadow"></div>
+            <div class="mascot-image">
+              <img src="assets/momo-mascot-transparent.png" alt="Momo, mascot gấu trúc đỏ của NihonGO">
+              <svg class="momo-blink" viewBox="0 0 820 692" aria-hidden="true">
+                <g class="blink-eyes">
+                  <ellipse cx="320" cy="442" rx="69" ry="51" fill="#5b3024" transform="rotate(-8 320 442)"/>
+                  <path d="M265 445 Q319 490 371 431" fill="none" stroke="#2b1713" stroke-width="12" stroke-linecap="round"/>
+                  <ellipse cx="605" cy="365" rx="65" ry="49" fill="#5b3024" transform="rotate(8 605 365)"/>
+                  <path d="M553 366 Q605 410 656 354" fill="none" stroke="#2b1713" stroke-width="12" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+            <span class="spark spark-a" aria-hidden="true">♫</span><span class="spark spark-b" aria-hidden="true">▤</span>
+          </div>
+          <div class="phone-mockup phone-mockup-real" aria-label="Ảnh chụp giao diện ứng dụng NihonGO">
+            <img class="app-screen-image" src="assets/app-screenshot.png" alt="Ảnh chụp thật giao diện ứng dụng NihonGO: tra cứu từ vựng, tiếp tục học JLPT và luyện kỹ năng" />
+          </div>
+          <div class="float-chip chip-video"><span>▶</span><div><b>Video Learning</b><small>Học qua ngữ cảnh thực tế</small></div></div>
+          <div class="float-chip chip-ai"><span>AI</span><div><b>AI Companion</b><small>Học theo nhịp của bạn</small></div></div>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>NIHONGO WITH MOMO</span><i></i><span>一歩ずつ — TỪNG BƯỚC MỘT</span></div>
+    </section>
+
+    <section class="proof-strip container reveal" aria-label="Điểm nổi bật">
+      <div class="proof-item"><span class="proof-icon people" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><strong>10,000+</strong><small>người học đang trải nghiệm</small></div></div>
+      <div class="proof-item"><span class="proof-icon star" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.68 6.27.91-4.54 4.42 1.07 6.24L12 17.3l-5.6 2.95 1.07-6.24L2.93 9.59l6.27-.91L12 3Z"/></svg></span><div><strong>4.8/5</strong><small>đánh giá trung bình</small></div></div>
+      <div class="proof-item"><span class="proof-icon bars" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><div><strong>Học hiệu quả hơn</strong><small>với AI cá nhân hóa</small></div></div>
+      <div class="proof-item"><span class="proof-icon heart" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg></span><div><strong>Phù hợp cho mọi trình độ</strong><small>từ N5 đến N1</small></div></div>
+    </section>
+
+    <section class="challenge-section section container reveal">
+      <div class="challenge-left">
+        <p class="eyebrow">BẠN CÓ TỪNG...</p>
+        <h2>Những khó khăn thường gặp<br>khi học tiếng Nhật</h2>
+        <div class="challenge-cards">
+          <article class="challenge-card">
+            <div class="mini-illustration memory"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.6 6.5a3 3 0 0 0-5.6-1.5 3 3 0 0 0-5.6 1.5 3.5 3.5 0 0 0-.4 6.8A3.5 3.5 0 0 0 9 18h6a3.5 3.5 0 0 0 3-4.7 3.5 3.5 0 0 0-.4-6.8Z"/></svg></div>
+            <h3>Khó ghi nhớ<br>từ vựng và ngữ pháp</h3><p>Học xong dễ quên, không có ngữ cảnh sử dụng và khó áp dụng vào giao tiếp thực tế.</p>
+          </article>
+          <article class="challenge-card">
+            <div class="mini-illustration practice"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></div>
+            <h3>Thiếu môi trường<br>luyện tập</h3><p>Ít cơ hội luyện nghe, phản xạ nói với người bản xứ và không có ai chỉnh lỗi phát âm.</p>
+          </article>
+          <article class="challenge-card">
+            <div class="mini-illustration motivation"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></div>
+            <h3>Khó duy trì động lực</h3><p>Không có lộ trình rõ ràng, bài giảng nhàm chán khiến bạn nhanh cảm thấy nản và bỏ cuộc.</p>
+          </article>
+        </div>
+      </div>
+      <div class="solution-panel">
+        <div class="solution-copy">
+          <p class="eyebrow">MEET YOUR LEARNING PARTNER</p>
+          <h2>Nihon<span>GO</span> giúp bạn<br><em>học tiếng Nhật dễ dàng hơn</em></h2>
+          <ul>
+            <li>Học qua video thực tế, ngữ cảnh sống động từ đời sống Nhật Bản</li>
+            <li>AI hỗ trợ cá nhân hóa lộ trình học theo mục tiêu và điểm yếu</li>
+            <li>Phát triển toàn diện 4 kỹ năng: Nghe, Nói, Đọc, Viết</li>
+            <li>Theo dõi tiến độ hàng ngày và nhắc nhở học tập thông minh</li>
+            <li>Phù hợp cho người tự học từ con số 0 và luyện thi JLPT N5–N1</li>
+          </ul>
+        </div>
+        <div class="reading-momo"><img src="assets/momo-mascot-transparent.png" alt="Momo mascot NihonGO"><span class="book">にほんご</span></div>
+      </div>
+    </section>
+
+    <section class="skills-section section container reveal" id="features">
+      <div class="skills-heading"><div><p class="eyebrow">LEARN EVERY DAY</p><h2>4 kỹ năng — 1 hành trình hoàn chỉnh</h2><p>Học tiếng Nhật một cách tự nhiên, hiệu quả và bền vững.</p></div><a class="text-link" href="#how">Khám phá cách học <span>↗</span></a></div>
+      <div class="skill-grid">
+        <article class="skill-card skill-listen"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M5 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5h2ZM19 14h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h-2Z"/></svg></div><div><h3>Nghe <small>聞く</small></h3><p>Làm quen với âm thanh và cách diễn đạt tự nhiên.</p></div><span class="skill-arrow">↗</span></article>
+        <article class="skill-card skill-speak"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></div><div><h3>Nói <small>話す</small></h3><p>Luyện diễn đạt và tự tin giao tiếp hơn.</p></div><span class="skill-arrow">↗</span></article>
+        <article class="skill-card skill-read"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13"/><path d="M3 18a2 2 0 0 0 2 2h3a4 4 0 0 1 4 2 4 4 0 0 1 4-2h3a2 2 0 0 0 2-2"/></svg></div><div><h3>Đọc <small>読む</small></h3><p>Hiểu ý nghĩa, từ vựng và cấu trúc câu.</p></div><span class="skill-arrow">↗</span></article>
+        <article class="skill-card skill-write"><div class="skill-art"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 5 3 3"/><path d="M4 20l4.5-1 11-11a2.12 2.12 0 0 0-3-3l-11 11L4 20Z"/></svg></div><div><h3>Viết <small>書く</small></h3><p>Thực hành tạo câu và sử dụng kiến thức chủ động.</p></div><span class="skill-arrow">↗</span></article>
+      </div>
+    </section>
+
+    <section class="how-section section" id="how">
+      <div class="container how-grid">
+        <div class="how-copy"><p class="eyebrow">HOW IT WORKS</p><h2>Mỗi ngày một chút.<br><span>Tiến bộ từng bước.</span></h2><p>Một trải nghiệm học tập được thiết kế để giúp bạn chuyển từ tiếp thu kiến thức sang chủ động sử dụng tiếng Nhật.</p><a href="#try" class="btn btn-primary">Khám phá bản demo <span>→</span></a></div>
+        <div class="how-steps">
+          <article><span>01</span><div><h3>Khám phá</h3><p>Chọn nội dung và kỹ năng bạn muốn luyện tập.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3 6.3-2.1Z"/></svg></b></article>
+          <article><span>02</span><div><h3>Học trong ngữ cảnh</h3><p>Kết nối từ vựng, ngữ pháp với ví dụ thực tế.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></b></article>
+          <article><span>03</span><div><h3>Thực hành cùng AI</h3><p>Luyện tập và nhận hỗ trợ trong quá trình học.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></b></article>
+          <article><span>04</span><div><h3>Ôn tập và duy trì</h3><p>Giữ nhịp học đều đặn và quay lại kiến thức đã học.</p></div><b><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></b></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="listening-section section container reveal" id="listening-demo">
+      <div class="section-intro"><p class="eyebrow">HỌC TRONG NGỮ CẢNH THỰC TẾ</p><h2>Kỹ năng: Nghe <span>聞く</span></h2><p>Luyện nghe phản xạ với hội thoại đời sống, video và nội dung tiếng Nhật gần gũi.</p></div>
+      <div class="listening-grid">
+        <div class="listening-copy">
+          <div class="feature-points">
+            <div><span class="feature-icon"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M5 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5h2ZM19 14h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h-2Z"/></svg></span><div><b>Tùy chỉnh tốc độ 0.75x–1.5x</b><small>Luyện nghe theo nhịp độ phù hợp.</small></div></div>
+            <div><span class="feature-icon"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13"/><path d="M3 18a2 2 0 0 0 2 2h3a4 4 0 0 1 4 2 4 4 0 0 1 4-2h3a2 2 0 0 0 2-2"/></svg></span><div><b>Phụ đề và Furigana</b><small>Hỗ trợ nhận diện cách đọc và ý nghĩa.</small></div></div>
+            <div><span class="feature-icon"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg></span><div><b>Nghe lặp lại / Shadowing</b><small>Nghe nhiều lần và luyện nói theo.</small></div></div>
+          </div>
+          <div class="listening-note"><b>Gợi ý nội dung</b><p>Hội thoại tại cửa hàng tiện lợi (Combini), tin tức dễ hiểu và các tình huống giao tiếp hằng ngày.</p></div>
+        </div>
+        <div class="dialogue-card">
+          <div class="dialogue-top"><span class="live-dot"></span><span><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M5 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5h2ZM19 14h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h-2Z"/></svg> LUYỆN TẬP KỸ NĂNG NGHE</span><span class="level-tag">N5</span></div>
+          <p class="dialogue-label">Hội thoại tại cửa hàng tiện lợi</p>
+          <div class="japanese-line" id="japanese-line">いらっしゃいませ！おべんとう あたためますか？</div>
+          <div class="furigana-line" id="furigana-line">いらっしゃいませ！お弁当、温めますか？</div>
+          <div class="romaji-line">Irasshaimase! Obentou atatamemasu ka?</div>
+          <div class="meaning-line">👉 Kính chào quý khách! Quý khách có muốn hâm nóng cơm hộp không ạ?</div>
+          <div class="dialogue-actions"><button type="button" class="btn btn-secondary btn-small" id="furigana-toggle">Ẩn Furigana</button><button type="button" class="btn btn-primary btn-small" id="speak-japanese"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg> Nghe câu tiếng Nhật</button></div>
+          <p class="audio-note" id="audio-note">Sử dụng giọng tiếng Nhật có sẵn trên trình duyệt của bạn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section section" id="practice">
+      <div class="container quiz-layout reveal">
+        <div class="quiz-momo"><img src="assets/momo-mascot-transparent.png" alt="Momo đồng hành trong bài luyện tập"><div class="exp-badge"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.68 6.27.91-4.54 4.42 1.07 6.24L12 17.3l-5.6 2.95 1.07-6.24L2.93 9.59l6.27-.91L12 3Z"/></svg> EXP <b id="exp-count">0</b></div></div>
+        <div class="quiz-content"><p class="eyebrow">TRẢI NGHIỆM TRỰC TIẾP</p><h2>Thử sức 1 phút cùng bạn Cáo Momo</h2><p class="quiz-lead">Câu hỏi thực tế N5 — chọn câu chào buổi sáng lịch sự chuẩn nhất trong tiếng Nhật:</p>
+          <div class="quiz-options" role="group" aria-label="Chọn câu trả lời">
+            <button type="button" class="quiz-option" data-correct="false"><span>こんにちは</span><small>Konnichiwa · Chào buổi trưa / chiều thông dụng</small></button>
+            <button type="button" class="quiz-option" data-correct="true"><span>おはようございます</span><small>Ohayou gozaimasu · Chào buổi sáng lịch sự</small></button>
+            <button type="button" class="quiz-option" data-correct="false"><span>こんばんは</span><small>Konbanwa · Chào buổi tối</small></button>
+            <button type="button" class="quiz-option" data-correct="false"><span>さようなら</span><small>Sayounara · Tạm biệt (ít dùng hằng ngày)</small></button>
+          </div><p class="quiz-feedback" id="quiz-feedback" aria-live="polite">Chọn một đáp án để kiểm tra nhé!</p><button type="button" class="text-link quiz-reset" id="quiz-reset">Làm lại câu hỏi ↻</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section section container reveal" id="testimonials">
+      <div class="section-heading-centered"><p class="eyebrow">ĐÁNH GIÁ TỪ CỘNG ĐỒNG</p><h2>Hơn 10,000+ học viên tin chọn NihonGO</h2><p>Lắng nghe những câu chuyện học tiếng Nhật cùng Momo.</p></div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card"><div class="quote-mark">“</div><div class="rating-stars" aria-label="5 trên 5 sao">★★★★★</div><blockquote>Trước đây mình rất sợ phần Nghe và Nói vì không có người luyện tập cùng. Từ ngày học với NihonGO, linh vật Momo dễ thương luôn đồng hành nhắc nhở.</blockquote><div class="reviewer"><img class="reviewer-avatar reviewer-photo" src="assets/testimonial-truong-gia-huy.png" alt="Ảnh Trương Gia Huy" /><div><b>Trương Gia Huy</b><small>Thực tập sinh tại Tokyo, Nhật Bản</small></div></div><div class="review-result">Đỗ JLPT N2 sau 8 tháng học cùng Momo</div></article>
+        <article class="testimonial-card"><div class="quote-mark">“</div><div class="rating-stars" aria-label="5 trên 5 sao">★★★★★</div><blockquote>Video ngữ cảnh thực tế của NihonGO khác biệt hoàn toàn với các app sách vở truyền thống. Bạn học được những câu người Nhật thường nói ở văn phòng và đời sống.</blockquote><div class="reviewer"><img class="reviewer-avatar reviewer-photo" src="assets/testimonial-dang-cong-nhat.png" alt="Ảnh Đặng Công Nhật" /><div><b>Đặng Công Nhật</b><small>Thực tập sinh tại Tokyo, Nhật Bản</small></div></div><div class="review-result">Giao tiếp công sở tự nhiên, đỗ N1</div></article>
+        <article class="testimonial-card"><div class="quote-mark">“</div><div class="rating-stars" aria-label="5 trên 5 sao">★★★★★</div><blockquote>Giao diện ứng dụng trực quan! Mỗi ngày chỉ cần 15 phút rảnh rỗi trên xe bus là mình đã học xong mục tiêu mà không cảm thấy áp lực.</blockquote><div class="reviewer"><img class="reviewer-avatar reviewer-photo" src="assets/testimonial-le-dao-minh-nhat.jpg" alt="Ảnh Lê Đào Minh Nhật" /><div><b>Lê Đào Minh Nhật</b><small>Kỹ sư cầu nối (BrSE)</small></div></div><div class="review-result">Đạt chuỗi streak 120 ngày liên tục</div></article>
+      </div>
+      <p class="content-disclaimer">Lưu ý: các đánh giá và kết quả học tập cần được xác minh và có sự đồng ý của người được trích dẫn trước khi công bố chính thức.</p>
+    </section>
+
+    <section class="pricing-section section" id="pricing">
+      <div class="container reveal"><div class="section-heading-centered"><p class="eyebrow">ĐẦU TƯ THÔNG MINH</p><h2>Lựa chọn gói học phù hợp với bạn</h2><p>Học thử miễn phí ngay hôm nay. Chọn gói phù hợp với hành trình của bạn.</p></div>
+        <div class="pricing-grid">
+          <article class="price-card"><div class="price-card-top"><span class="plan-kicker">BẮT ĐẦU HỌC</span><h3>Cơ bản <small>(Free)</small></h3><p>Dành cho người mới bắt đầu làm quen với bảng chữ cái Hiragana &amp; Katakana.</p></div><div class="price"><strong>0đ</strong><span>/ mãi mãi</span></div><ul><li>Bảng chữ cái &amp; 200 từ vựng N5 cốt lõi</li><li>5 bài luyện nghe hội thoại cơ bản/ngày</li><li>Theo dõi tiến độ và chuỗi streak học</li><li>Cộng đồng học viên tự học tiếng Nhật</li></ul><a class="btn btn-secondary price-cta" href="#try">Bắt đầu miễn phí</a><small class="price-foot">✓ Không cần thanh toán để bắt đầu</small></article>
+          <article class="price-card price-featured"><div class="popular-label">ĐƯỢC CHỌN NHIỀU</div><div class="price-card-top"><span class="plan-kicker">BỨT PHÁ TOÀN DIỆN</span><h3>NihonGO Pro</h3><p>Gói phổ biến dành cho người muốn phát triển toàn diện 4 kỹ năng.</p></div><div class="price"><strong>99.000đ</strong><span>/ tháng</span></div><p class="saving-note">Giá tham khảo — ưu đãi 45% cần xác nhận</p><ul><li>Mở khóa khóa học từ N5 đến N1</li><li>AI chỉnh sửa phát âm &amp; cao độ</li><li>Học qua video đời sống thực tế</li><li>Bộ đề thi thử JLPT có bấm giờ &amp; giải chi tiết</li><li>Chế độ tải bài học ngoại tuyến (Offline)</li><li>Hỗ trợ 1:1 từ trợ giảng tiếng Nhật</li></ul><a class="btn btn-primary price-cta" href="#try">Trải nghiệm Pro</a><small class="price-foot">✓ Chi tiết quyền lợi cần xác nhận theo bản demo</small></article>
+          <article class="price-card"><div class="price-card-top"><span class="plan-kicker">ĐỒNG HÀNH LÂU DÀI</span><h3>Trọn đời <small>(Lifetime)</small></h3><p>Đầu tư một lần cho hành trình chinh phục tiếng Nhật.</p></div><div class="price"><strong>1.299.000đ</strong><span>/ thanh toán một lần</span></div><ul><li>Tất cả quyền lợi Pro trọn đời</li><li>Cập nhật tính năng mới theo chính sách</li><li>Tặng khóa luyện phỏng vấn việc làm tiếng Nhật</li><li>Huy hiệu thành viên VIP cùng Momo</li></ul><a class="btn btn-secondary price-cta" href="#try">Tìm hiểu gói trọn đời</a><small class="price-foot">✓ Cần xác nhận điều khoản sử dụng</small></article>
+        </div>
+        <p class="pricing-disclaimer">Các mức giá và quyền lợi trên được đưa vào theo nội dung tham khảo bạn cung cấp; cần xác nhận chính sách bán hàng, tính năng đã triển khai và điều khoản hoàn tiền trước khi công bố.</p>
+      </div>
+    </section>
+
+    <section class="faq-section section container reveal" id="faq">
+      <div class="faq-heading"><p class="eyebrow">GIẢI ĐÁP THẮC MẮC</p><h2>Câu hỏi thường gặp về NihonGO</h2><p>Mọi điều bạn cần biết trước khi bắt đầu hành trình học tiếng Nhật cùng Momo.</p></div>
+      <div class="faq-list">
+        <details><summary>Ứng dụng NihonGO có phù hợp cho người hoàn toàn chưa biết gì không?<span>＋</span></summary><p>NihonGO hướng đến người mới bắt đầu với bảng chữ cái Hiragana, Katakana và lộ trình học từ nền tảng. Hãy kiểm tra các bài học hiện có trong bản demo để biết phần nào đã sẵn sàng trải nghiệm.</p></details>
+        <details><summary>Công nghệ AI của NihonGO hỗ trợ sửa phát âm như thế nào?<span>＋</span></summary><p>Định hướng của NihonGO là hỗ trợ người học thực hành nói và nhận phản hồi. Phạm vi phân tích phát âm, cao độ và giới hạn lượt dùng cần được mô tả theo chức năng thực tế của phiên bản đang triển khai.</p></details>
+        <details><summary>Tôi có thể tải bài học về để học khi không có mạng (Offline) không?<span>＋</span></summary><p>Khả năng học ngoại tuyến phụ thuộc vào phiên bản ứng dụng và gói sử dụng. Vui lòng xác nhận tính năng này đã được triển khai trước khi đăng thông tin chính thức.</p></details>
+        <details><summary>NihonGO có cam kết hoàn tiền nếu tôi không thấy tiến bộ không?<span>＋</span></summary><p>Chính sách hoàn tiền cần được công bố rõ về điều kiện, thời hạn và quy trình yêu cầu. Không nên coi nội dung hoàn tiền 7 ngày là cam kết chính thức cho đến khi đội ngũ xác nhận chính sách.</p></details>
+        <details><summary>NihonGO hỗ trợ những kỹ năng nào?<span>＋</span></summary><p>NihonGO tập trung vào bốn kỹ năng Nghe (聞く), Nói (話す), Đọc (読む) và Viết (書く), kết hợp thực hành theo ngữ cảnh và lộ trình học.</p></details>
+        <details><summary>Tôi có thể trải nghiệm ứng dụng ở đâu?<span>＋</span></summary><p>Nhấn nút “Trải nghiệm ngay” để mở bản demo sau khi URL website thật được cấu hình trong mã nguồn.</p></details>
+      </div>
+    </section>
+
+    <section class="cta-section section" id="try">
+      <div class="container cta-panel reveal">
+        <div class="cta-decoration" aria-hidden="true"><svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12a2 2 0 0 1 2 2v15l-8-4-8 4V6a2 2 0 0 1 2-2Z"/></svg></div><p class="eyebrow">ĐỒNG HÀNH CÙNG BẠN MỖI NGÀY</p>
+        <h2>Bắt đầu hành trình tiếng Nhật<br><span>cùng Momo ngay hôm nay!</span></h2>
+        <p>Chỉ 15 phút mỗi ngày — bắt đầu từ một bước nhỏ và tiếp tục tiến bộ.</p>
+        <div class="cta-actions"><a class="btn btn-primary btn-large" id="demo-link" href="#try">Học thử trên Web <span>→</span></a><a class="btn btn-secondary btn-large" href="#features">Khám phá tính năng</a></div>
+        <div class="store-placeholder">
+          <a class="store-badge store-badge-apple" href="#try" aria-label="App Store — sắp ra mắt"><img class="store-brand-icon apple-icon-img" src="assets/app-store-icon.png" alt="App Store" /><span><small>Tải trên</small><strong>App Store</strong></span><em>Sắp ra mắt</em></a>
+          <a class="store-badge store-badge-google" href="#try" aria-label="Google Play — sắp ra mắt"><svg class="store-brand-icon google-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.2 2.4 14 12 3.2 21.6c-.4-.3-.7-.9-.7-1.7V4.1c0-.8.3-1.4.7-1.7Z"/><path fill="#4285F4" d="m3.2 2.4 13 7.3-2.2 2.3L3.2 2.4Z"/><path fill="#FBBC04" d="m14 12 2.2 2.3-13 7.3L14 12Z"/><path fill="#EA4335" d="m16.2 9.7 4.2 2.3c1 .6 1 1.4 0 2l-4.2 2.3-2.2-2.3 2.2-2-2.2-2.3Z"/></svg><span><small>Có mặt trên</small><strong>Google Play</strong></span><em>Sắp ra mắt</em></a>
+          <small>Liên kết tải ứng dụng sẽ được cập nhật khi có trang phát hành chính thức.</small>
+        </div>
+        <small>一緒に頑張ろう！ — Cùng cố gắng nhé!</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-columns">
+      <div class="footer-about"><a class="footer-brand" href="#about"><img src="assets/nihongo-logo-horizontal.png" alt="NihonGO cùng Momo"></a><p>Ứng dụng học tiếng Nhật kết hợp AI và video thực tế. Đồng hành cùng Momo giúp bạn chinh phục JLPT và tự tin giao tiếp.</p><small>Được xây dựng với tình yêu dành cho Nhật ngữ.</small></div>
+      <div class="footer-col"><h3>Khám phá</h3><a href="#about">Giới thiệu NihonGO</a><a href="#features">4 kỹ năng toàn diện</a><a href="#how">Lộ trình học cá nhân hóa</a><a href="#practice">Trải nghiệm bài tập</a><a href="#testimonials">Cảm nhận học viên</a></div>
+      <div class="footer-col"><h3>Tài nguyên</h3><a href="#pricing">Bảng giá gói học</a><a href="#faq">Câu hỏi thường gặp</a><a href="#listening-demo">Luyện nghe mẫu</a><a href="#practice">Câu hỏi N5</a><a href="#">Từ điển Kanji N5–N1 (sắp có)</a></div>
+      <div class="footer-col"><h3>Chính sách &amp; hỗ trợ</h3><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách bảo mật</a><a href="#faq">Chính sách hoàn tiền</a><a href="mailto:support@nihongo.app">support@nihongo.app</a><div class="language-switch">Tiếng Việt <span>/</span> 日本語</div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> NihonGO App. Bản quyền thuộc về đội ngũ phát triển NihonGO.</span><span>Thiết kế thân thiện · Bảo vệ quyền riêng tư</span></div>
+  </footer>
+  <script>
+(() => {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("#nav-links");
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!open));
+      nav.classList.toggle("is-open", !open);
+      toggle.setAttribute("aria-label", open ? "Mở menu" : "Đóng menu");
+    });
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Mở menu");
+    }));
+  }
+
+  document.querySelector("#year").textContent = new Date().getFullYear();
+
+  // Set this to the actual public demo URL before publishing.
+  const DEMO_URL = "";
+  const demoLinks = [document.querySelector("#demo-link"), document.querySelector(".nav-cta"), ...document.querySelectorAll('a[href="#try"]')].filter(Boolean);
+  demoLinks.forEach(link => {
+    if (DEMO_URL) {
+      link.href = DEMO_URL;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    } else if (link.id === "demo-link") {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        alert("Hãy điền URL website demo vào biến DEMO_URL trong script.js trước khi xuất bản landing page.");
+      });
+    }
+  });
+
+  // Subtle 3D parallax for Momo. Disabled on touch-first devices and reduced-motion preference.
+  const scene = document.querySelector("#momo-scene");
+  const momo = document.querySelector("#momo-tilt");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  if (scene && momo && !reducedMotion && finePointer) {
+    scene.addEventListener("pointermove", event => {
+      const rect = scene.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      momo.style.animationPlayState = "paused";
+      momo.style.transform = `translate3d(${x * 14}px, ${y * 10}px, 0) rotateY(${x * 10}deg) rotateX(${-y * 8}deg)`;
+    });
+    scene.addEventListener("pointerleave", () => {
+      momo.style.transform = "";
+      momo.style.animationPlayState = "";
+    });
+  }
+
+
+  // Listening demo: show/hide reading aid and use the browser's Japanese speech voice if available.
+  const furiganaToggle = document.querySelector("#furigana-toggle");
+  const furiganaLine = document.querySelector("#furigana-line");
+  if (furiganaToggle && furiganaLine) {
+    furiganaToggle.addEventListener("click", () => {
+      const hidden = furiganaLine.classList.toggle("is-hidden");
+      furiganaToggle.textContent = hidden ? "Hiện Furigana" : "Ẩn Furigana";
+    });
+  }
+  const speakButton = document.querySelector("#speak-japanese");
+  const audioNote = document.querySelector("#audio-note");
+  if (speakButton) {
+    speakButton.addEventListener("click", () => {
+      if (!("speechSynthesis" in window)) {
+        if (audioNote) audioNote.textContent = "Trình duyệt này chưa hỗ trợ đọc văn bản. Bạn có thể thử Chrome hoặc Edge.";
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance("いらっしゃいませ。お弁当、温めますか？");
+      utterance.lang = "ja-JP";
+      utterance.rate = 0.88;
+      const voices = window.speechSynthesis.getVoices();
+      const japaneseVoice = voices.find(voice => voice.lang && voice.lang.toLowerCase().startsWith("ja"));
+      if (japaneseVoice) utterance.voice = japaneseVoice;
+      utterance.onstart = () => { if (audioNote) audioNote.textContent = "Đang phát giọng đọc tiếng Nhật của trình duyệt."; };
+      utterance.onend = () => { if (audioNote) audioNote.textContent = "Đã phát xong. Giọng đọc phụ thuộc vào voice được cài trên thiết bị."; };
+      utterance.onerror = () => { if (audioNote) audioNote.textContent = "Không thể phát âm thanh trên thiết bị này."; };
+      window.speechSynthesis.speak(utterance);
+    });
+  }
+
+  // One-question N5 quiz with local score only; no account or backend needed.
+  let quizAnswered = false;
+  const quizOptions = [...document.querySelectorAll(".quiz-option")];
+  const quizFeedback = document.querySelector("#quiz-feedback");
+  const expCount = document.querySelector("#exp-count");
+  const resetQuiz = document.querySelector("#quiz-reset");
+  quizOptions.forEach(option => option.addEventListener("click", () => {
+    if (quizAnswered) return;
+    quizAnswered = true;
+    const correct = option.dataset.correct === "true";
+    option.classList.add(correct ? "correct" : "incorrect");
+    quizOptions.forEach(item => {
+      item.disabled = true;
+      if (item.dataset.correct === "true") item.classList.add("correct");
+    });
+    if (correct) {
+      if (quizFeedback) { quizFeedback.textContent = "Chính xác! おはようございます là lời chào buổi sáng lịch sự. +10 EXP"; quizFeedback.className = "quiz-feedback good"; }
+      if (expCount) expCount.textContent = "10";
+    } else {
+      if (quizFeedback) { quizFeedback.textContent = "Chưa đúng rồi! Đáp án đúng là おはようございます (Ohayou gozaimasu)."; quizFeedback.className = "quiz-feedback bad"; }
+    }
+  }));
+  if (resetQuiz) resetQuiz.addEventListener("click", () => {
+    quizAnswered = false;
+    quizOptions.forEach(item => { item.disabled = false; item.classList.remove("correct", "incorrect"); });
+    if (quizFeedback) { quizFeedback.textContent = "Chọn một đáp án để kiểm tra nhé!"; quizFeedback.className = "quiz-feedback"; }
+    if (expCount) expCount.textContent = "0";
+  });
+
+  const revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add("is-visible"));
+  }
+})();
+
+  // Lightweight client-side localization for the standalone landing page.
+  // The language dropdown is intentionally dependency-free and works from file://.
+  const languageSelect = document.querySelector('#language-select');
+  const localizedText = {
+    'Giới thiệu': ['About', '紹介', 'អំពីយើង', 'Tentang', 'Pengenalan', 'เกี่ยวกับเรา', 'Acerca de', 'Über uns'],
+    'Tính năng': ['Features', '機能', 'មុខងារ', 'Fitur', 'Ciri-ciri', 'คุณสมบัติ', 'Funciones', 'Funktionen'],
+    'Cách hoạt động': ['How it works', '使い方', 'របៀបប្រើប្រាស់', 'Cara kerja', 'Cara berfungsi', 'วิธีใช้งาน', 'Cómo funciona', 'So funktioniert es'],
+    'Bảng giá': ['Pricing', '料金', 'តម្លៃ', 'Harga', 'Harga', 'ราคา', 'Precios', 'Preise'],
+    'Trải nghiệm ngay': ['Try it now', '今すぐ体験', 'សាកល្បងឥឡូវនេះ', 'Coba sekarang', 'Cuba sekarang', 'ทดลองใช้เลย', 'Pruébalo ahora', 'Jetzt ausprobieren'],
+    'Học tiếng Nhật dễ hơn mỗi ngày': ['Make Japanese easier every day', '毎日もっと楽しく日本語を学ぼう', 'រៀនភាសាជប៉ុនកាន់តែងាយស្រួលរាល់ថ្ងៃ', 'Belajar bahasa Jepang lebih mudah setiap hari', 'Belajar bahasa Jepun dengan lebih mudah setiap hari', 'เรียนภาษาญี่ปุ่นง่ายขึ้นทุกวัน', 'Aprende japonés más fácilmente cada día', 'Lerne jeden Tag leichter Japanisch'],
+    'Học tiếng Nhật cùng Momo': ['Learn Japanese with Momo', 'Momoと一緒に日本語を学ぼう', 'រៀនភាសាជប៉ុនជាមួយ Momo', 'Belajar bahasa Jepang bersama Momo', 'Belajar bahasa Jepun bersama Momo', 'เรียนภาษาญี่ปุ่นกับ Momo', 'Aprende japonés con Momo', 'Lerne Japanisch mit Momo'],
+    'Ứng dụng hỗ trợ bạn phát triển toàn diện 4 kỹ năng tiếng Nhật với AI, video thực tế và lộ trình học cá nhân hóa.': ['An app that helps you develop all four Japanese skills with AI, real-life videos, and a personalized learning path.', 'AI、実際の動画、個別学習プランで日本語の4技能を総合的に伸ばすアプリです。', 'កម្មវិធីជួយអភិវឌ្ឍជំនាញភាសាជប៉ុនទាំង ៤ ដោយប្រើ AI វីដេអូជាក់ស្តែង និងផែនការរៀនផ្ទាល់ខ្លួន។', 'Aplikasi untuk mengembangkan empat keterampilan bahasa Jepang dengan AI, video nyata, dan jalur belajar yang dipersonalisasi.', 'Aplikasi untuk mengembangkan empat kemahiran bahasa Jepun dengan AI, video sebenar dan laluan pembelajaran peribadi.', 'แอปช่วยพัฒนาทักษะภาษาญี่ปุ่นทั้ง 4 ด้านด้วย AI วิดีโอจริง และแผนการเรียนเฉพาะบุคคล', 'Una app para desarrollar las cuatro habilidades del japonés con IA, vídeos reales y una ruta de aprendizaje personalizada.', 'Eine App, mit der du alle vier Japanisch-Fertigkeiten mit KI, realen Videos und einem personalisierten Lernpfad entwickelst.'],
+    'Tìm hiểu thêm': ['Learn more', '詳しく見る', 'ស្វែងយល់បន្ថែម', 'Pelajari lebih lanjut', 'Ketahui lebih lanjut', 'ดูเพิ่มเติม', 'Más información', 'Mehr erfahren'],
+    'Học với video thực tế': ['Learn with real-life videos', '実際の動画で学ぶ', 'រៀនតាមវីដេអូជាក់ស្តែង', 'Belajar dengan video nyata', 'Belajar melalui video sebenar', 'เรียนผ่านวิดีโอจริง', 'Aprende con vídeos reales', 'Lernen mit realen Videos'],
+    'AI hỗ trợ cá nhân hóa': ['AI-powered personalization', 'AIによる個別最適化', 'AI ជួយកំណត់ការរៀនផ្ទាល់ខ្លួន', 'Personalisasi dengan AI', 'Pemperibadian dengan AI', 'AI ช่วยปรับการเรียนให้เหมาะกับคุณ', 'Personalización con IA', 'Personalisierung durch KI'],
+    'Học mọi lúc, mọi nơi': ['Learn anytime, anywhere', 'いつでもどこでも学習', 'រៀនគ្រប់ពេល គ្រប់ទីកន្លែង', 'Belajar kapan saja, di mana saja', 'Belajar bila-bila masa, di mana sahaja', 'เรียนได้ทุกที่ทุกเวลา', 'Aprende en cualquier momento y lugar', 'Lerne jederzeit und überall'],
+    'Ứng dụng di động': ['Mobile app', 'モバイルアプリ', 'កម្មវិធីទូរស័ព្ទ', 'Aplikasi seluler', 'Aplikasi mudah alih', 'แอปมือถือ', 'Aplicación móvil', 'Mobile App'],
+    'Sắp ra mắt': ['Coming soon', '近日公開', 'នឹងមកដល់ឆាប់ៗនេះ', 'Segera hadir', 'Akan datang', 'เร็ว ๆ นี้', 'Próximamente', 'Demnächst verfügbar'],
+    'người học đang trải nghiệm': ['learners exploring the app', '人の学習者が利用中', 'អ្នកកំពុងសាកល្បងរៀន', 'pelajar sedang mencoba', 'pelajar sedang mencuba', 'ผู้เรียนกำลังทดลองใช้', 'estudiantes probando la app', 'Lernende testen die App'],
+    'đánh giá trung bình': ['average rating', '平均評価', 'ការវាយតម្លៃជាមធ្យម', 'peringkat rata-rata', 'penilaian purata', 'คะแนนเฉลี่ย', 'valoración media', 'Durchschnittsbewertung'],
+    'Học hiệu quả hơn': ['Learn more effectively', 'もっと効果的に学習', 'រៀនប្រកបដោយប្រសិទ្ធភាព', 'Belajar lebih efektif', 'Belajar dengan lebih berkesan', 'เรียนอย่างมีประสิทธิภาพยิ่งขึ้น', 'Aprende con más eficacia', 'Effektiver lernen'],
+    'với AI cá nhân hóa': ['with personalized AI', '個別最適化AIで', 'ជាមួយ AI ផ្ទាល់ខ្លួន', 'dengan AI personal', 'dengan AI peribadi', 'ด้วย AI ที่ปรับตามคุณ', 'con IA personalizada', 'mit personalisierter KI'],
+    'Phù hợp cho mọi trình độ': ['For every level', 'あらゆるレベルに対応', 'សមស្របសម្រាប់គ្រប់កម្រិត', 'Cocok untuk semua level', 'Sesuai untuk semua tahap', 'เหมาะกับทุกระดับ', 'Para todos los niveles', 'Für alle Niveaus geeignet'],
+    'từ N5 đến N1': ['from N5 to N1', 'N5からN1まで', 'ពី N5 ដល់ N1', 'dari N5 hingga N1', 'dari N5 hingga N1', 'ตั้งแต่ N5 ถึง N1', 'de N5 a N1', 'von N5 bis N1'],
+    'BẠN CÓ TỪNG...': ['HAVE YOU EVER…', 'こんな経験はありませんか？', 'តើអ្នកធ្លាប់…', 'PERNAHKAH KAMU…', 'PERNAHKAH ANDA…', 'คุณเคย…ไหม', '¿ALGUNA VEZ…?', 'KENNST DU DAS…'],
+    'Những khó khăn thường gặp': ['Common challenges', 'よくある悩み', 'បញ្ហាដែលជួបញឹកញាប់', 'Tantangan umum', 'Cabaran biasa', 'ปัญหาที่พบบ่อย', 'Dificultades comunes', 'Häufige Herausforderungen'],
+    'khi học tiếng Nhật': ['when learning Japanese', '日本語学習で', 'នៅពេលរៀនភាសាជប៉ុន', 'saat belajar bahasa Jepang', 'ketika belajar bahasa Jepun', 'เมื่อเรียนภาษาญี่ปุ่น', 'al aprender japonés', 'beim Japanischlernen'],
+    'Khó ghi nhớ': ['Hard to remember', '覚えにくい', 'ពិបាកចងចាំ', 'Sulit diingat', 'Sukar diingati', 'จำได้ยาก', 'Difícil de recordar', 'Schwer zu merken'],
+    'từ vựng và ngữ pháp': ['vocabulary and grammar', '語彙と文法', 'វាក្យសព្ទ និងវេយ្យាករណ៍', 'kosakata dan tata bahasa', 'kosa kata dan tatabahasa', 'คำศัพท์และไวยากรณ์', 'vocabulario y gramática', 'Wortschatz und Grammatik'],
+    'Thiếu môi trường': ['Lack of practice', '練習する環境がない', 'ខ្វះបរិយាកាសអនុវត្ត', 'Kurang lingkungan latihan', 'Kurang persekitaran latihan', 'ขาดสภาพแวดล้อมในการฝึก', 'Falta de práctica', 'Zu wenig Übungsmöglichkeiten'],
+    'luyện tập': ['practice', '練習', 'ការអនុវត្ត', 'latihan', 'latihan', 'ฝึกฝน', 'práctica', 'Übung'],
+    'Khó duy trì động lực': ['Hard to stay motivated', 'モチベーションが続かない', 'ពិបាករក្សាកម្លាំងចិត្ត', 'Sulit menjaga motivasi', 'Sukar mengekalkan motivasi', 'รักษาแรงจูงใจได้ยาก', 'Cuesta mantener la motivación', 'Schwer, motiviert zu bleiben'],
+    'học tiếng Nhật dễ dàng hơn': ['learn Japanese more easily', 'もっと簡単に日本語を学ぶ', 'រៀនភាសាជប៉ុនកាន់តែងាយស្រួល', 'belajar bahasa Jepang dengan lebih mudah', 'belajar bahasa Jepun dengan lebih mudah', 'เรียนภาษาญี่ปุ่นได้ง่ายขึ้น', 'aprender japonés más fácilmente', 'leichter Japanisch lernen'],
+    '4 kỹ năng — 1 hành trình hoàn chỉnh': ['4 skills — one complete journey', '4技能をひとつの学習体験に', 'ជំនាញ ៤ — ដំណើររៀនតែមួយ', '4 keterampilan — satu perjalanan lengkap', '4 kemahiran — satu perjalanan lengkap', '4 ทักษะ — เส้นทางเดียวที่ครบถ้วน', '4 habilidades — un recorrido completo', '4 Fähigkeiten — ein kompletter Lernweg'],
+    'Nghe': ['Listening', '聞く', 'ស្តាប់', 'Menyimak', 'Mendengar', 'การฟัง', 'Escuchar', 'Hören'],
+    'Nói': ['Speaking', '話す', 'និយាយ', 'Berbicara', 'Bertutur', 'การพูด', 'Hablar', 'Sprechen'],
+    'Đọc': ['Reading', '読む', 'អាន', 'Membaca', 'Membaca', 'การอ่าน', 'Leer', 'Lesen'],
+    'Viết': ['Writing', '書く', 'សរសេរ', 'Menulis', 'Menulis', 'การเขียน', 'Escribir', 'Schreiben'],
+    'Mỗi ngày một chút.': ['A little every day.', '毎日少しずつ。', 'បន្តិចម្តងៗរាល់ថ្ងៃ។', 'Sedikit setiap hari.', 'Sedikit setiap hari.', 'วันละนิด', 'Un poco cada día.', 'Jeden Tag ein bisschen.'],
+    'Tiến bộ từng bước.': ['Progress step by step.', '一歩ずつ上達。', 'រីកចម្រើនម្តងមួយជំហាន។', 'Maju selangkah demi selangkah.', 'Maju selangkah demi selangkah.', 'พัฒนาไปทีละขั้น', 'Progresa paso a paso.', 'Schritt für Schritt Fortschritte machen.'],
+    'Khám phá cách học': ['Explore the learning experience', '学習方法を見る', 'ស្វែងយល់ពីវិធីរៀន', 'Jelajahi cara belajar', 'Terokai cara belajar', 'ดูวิธีการเรียน', 'Descubre cómo aprender', 'Lernmöglichkeiten entdecken'],
+    'HỌC TRONG NGỮ CẢNH THỰC TẾ': ['LEARN IN REAL-LIFE CONTEXT', '実際の場面で学ぶ', 'រៀនក្នុងបរិបទជាក់ស្តែង', 'BELAJAR DALAM KONTEKS NYATA', 'BELAJAR DALAM KONTEKS SEBENAR', 'เรียนรู้จากสถานการณ์จริง', 'APRENDE EN CONTEXTOS REALES', 'LERNEN IN REALEN KONTEXTEN'],
+    'LUYỆN TẬP KỸ NĂNG NGHE': ['LISTENING PRACTICE', 'リスニング練習', 'ការហាត់ស្តាប់', 'LATIHAN MENYIMAK', 'LATIHAN MENDENGAR', 'ฝึกทักษะการฟัง', 'PRÁCTICA DE COMPRENSIÓN AUDITIVA', 'HÖRVERSTEHEN ÜBEN'],
+    'Ẩn Furigana': ['Hide Furigana', 'ふりがなを隠す', 'លាក់ Furigana', 'Sembunyikan Furigana', 'Sembunyikan Furigana', 'ซ่อนฟุริงานะ', 'Ocultar furigana', 'Furigana ausblenden'],
+    'Hiện Furigana': ['Show Furigana', 'ふりがなを表示', 'បង្ហាញ Furigana', 'Tampilkan Furigana', 'Tunjukkan Furigana', 'แสดงฟุริงานะ', 'Mostrar furigana', 'Furigana anzeigen'],
+    'Nghe câu tiếng Nhật': ['Listen to Japanese', '日本語を聞く', 'ស្តាប់ភាសាជប៉ុន', 'Dengarkan bahasa Jepang', 'Dengar bahasa Jepun', 'ฟังภาษาญี่ปุ่น', 'Escuchar japonés', 'Japanisch anhören'],
+    'TRẢI NGHIỆM TRỰC TIẾP': ['TRY IT YOURSELF', '実際に体験', 'សាកល្បងដោយផ្ទាល់', 'COBA LANGSUNG', 'CUBA SENDIRI', 'ทดลองใช้งานจริง', 'PRUÉBALO', 'JETZT AUSPROBIEREN'],
+    'Thử sức 1 phút cùng bạn Cáo Momo': ['Take a 1-minute challenge with Momo', 'Momoと1分間チャレンジ', 'សាកល្បង ១ នាទីជាមួយ Momo', 'Coba tantangan 1 menit bersama Momo', 'Cuba cabaran 1 minit bersama Momo', 'ลองท้าทาย 1 นาทีกับ Momo', 'Acepta un reto de 1 minuto con Momo', 'Mach eine 1-Minuten-Challenge mit Momo'],
+    'Chọn một đáp án để kiểm tra nhé!': ['Choose an answer to check!', '答えを選んで確認しましょう！', 'ជ្រើសរើសចម្លើយដើម្បីពិនិត្យ!', 'Pilih jawaban untuk memeriksa!', 'Pilih jawapan untuk menyemak!', 'เลือกคำตอบเพื่อตรวจสอบ!', '¡Elige una respuesta para comprobar!', 'Wähle eine Antwort zur Überprüfung!'],
+    'Làm lại câu hỏi ↻': ['Try again ↻', 'もう一度 ↻', 'សាកល្បងម្តងទៀត ↻', 'Coba lagi ↻', 'Cuba lagi ↻', 'ลองอีกครั้ง ↻', 'Intentar de nuevo ↻', 'Erneut versuchen ↻'],
+    'ĐÁNH GIÁ TỪ CỘNG ĐỒNG': ['COMMUNITY REVIEWS', '学習者の声', 'មតិយោបល់ពីសហគមន៍', 'ULASAN KOMUNITAS', 'ULASAN KOMUNITI', 'รีวิวจากผู้เรียน', 'OPINIONES DE LA COMUNIDAD', 'STIMMEN AUS DER COMMUNITY'],
+    'Hơn 10,000+ học viên tin chọn NihonGO': ['Over 10,000 learners choose NihonGO', '10,000人以上がNihonGOを選択', 'អ្នកសិក្សាជាង 10,000 នាក់ជឿទុកចិត្ត NihonGO', 'Lebih dari 10.000 pelajar memilih NihonGO', 'Lebih 10,000 pelajar memilih NihonGO', 'ผู้เรียนกว่า 10,000 คนเลือก NihonGO', 'Más de 10.000 estudiantes eligen NihonGO', 'Über 10.000 Lernende entscheiden sich für NihonGO'],
+    'Lắng nghe những câu chuyện học tiếng Nhật cùng Momo.': ['Hear stories of learning Japanese with Momo.', 'Momoと日本語を学ぶ人たちの声を聞いてみましょう。', 'ស្តាប់រឿងរ៉ាវនៃការរៀនភាសាជប៉ុនជាមួយ Momo។', 'Dengarkan kisah belajar bahasa Jepang bersama Momo.', 'Dengar kisah belajar bahasa Jepun bersama Momo.', 'ฟังเรื่องราวการเรียนภาษาญี่ปุ่นกับ Momo', 'Escucha historias de aprendizaje de japonés con Momo.', 'Höre Geschichten über das Japanischlernen mit Momo.'],
+    'ĐẦU TƯ THÔNG MINH': ['SMART INVESTMENT', '賢い学習投資', 'ការវិនិយោគដ៏ឆ្លាតវៃ', 'INVESTASI CERDAS', 'PELABURAN BIJAK', 'ลงทุนอย่างชาญฉลาด', 'INVERSIÓN INTELIGENTE', 'CLEVER INVESTIEREN'],
+    'Lựa chọn gói học phù hợp với bạn': ['Choose the plan that suits you', '自分に合った学習プランを選ぼう', 'ជ្រើសរើសកញ្ចប់រៀនដែលសមនឹងអ្នក', 'Pilih paket belajar yang cocok untukmu', 'Pilih pelan pembelajaran yang sesuai', 'เลือกแพ็กเกจการเรียนที่เหมาะกับคุณ', 'Elige el plan que mejor se adapte a ti', 'Wähle den passenden Lernplan'],
+    'Học thử miễn phí ngay hôm nay. Chọn gói phù hợp với hành trình của bạn.': ['Start learning for free today. Choose a plan for your journey.', '今日から無料で学習を始め、自分に合うプランを選びましょう。', 'ចាប់ផ្តើមរៀនដោយឥតគិតថ្លៃថ្ងៃនេះ ហើយជ្រើសរើសកញ្ចប់ដែលសមនឹងអ្នក។', 'Mulai belajar gratis hari ini dan pilih paket yang sesuai.', 'Mula belajar secara percuma hari ini dan pilih pelan yang sesuai.', 'เริ่มเรียนฟรีวันนี้ แล้วเลือกแพ็กเกจที่เหมาะกับคุณ', 'Empieza gratis hoy y elige el plan adecuado para tu camino.', 'Starte heute kostenlos und wähle den passenden Lernplan.'],
+    'Câu hỏi thường gặp về NihonGO': ['Frequently asked questions about NihonGO', 'NihonGOについてよくある質問', 'សំណួរដែលសួរញឹកញាប់អំពី NihonGO', 'Pertanyaan umum tentang NihonGO', 'Soalan lazim tentang NihonGO', 'คำถามที่พบบ่อยเกี่ยวกับ NihonGO', 'Preguntas frecuentes sobre NihonGO', 'Häufig gestellte Fragen zu NihonGO'],
+    'Bắt đầu hành trình tiếng Nhật': ['Start your Japanese journey', '日本語学習の旅を始めよう', 'ចាប់ផ្តើមដំណើររៀនភាសាជប៉ុន', 'Mulai perjalanan bahasa Jepangmu', 'Mulakan perjalanan bahasa Jepun anda', 'เริ่มต้นเส้นทางภาษาญี่ปุ่นของคุณ', 'Comienza tu camino en japonés', 'Beginne deine Japanisch-Reise'],
+    'cùng Momo ngay hôm nay!': ['with Momo today!', '今日からMomoと一緒に！', 'ជាមួយ Momo ចាប់ពីថ្ងៃនេះ!', 'bersama Momo hari ini!', 'bersama Momo hari ini!', 'กับ Momo ได้เลยวันนี้!', '¡con Momo hoy mismo!', 'heute mit Momo!'],
+    'Học thử trên Web': ['Try on the web', 'Webで体験', 'សាកល្បងលើគេហទំព័រ', 'Coba di web', 'Cuba di web', 'ทดลองบนเว็บ', 'Probar en la web', 'Im Web ausprobieren'],
+    'Khám phá tính năng': ['Explore features', '機能を見る', 'ស្វែងយល់ពីមុខងារ', 'Jelajahi fitur', 'Terokai ciri-ciri', 'สำรวจคุณสมบัติ', 'Explorar funciones', 'Funktionen entdecken'],
+    'Khám phá': ['Explore', '探す', 'ស្វែងយល់', 'Jelajahi', 'Terokai', 'สำรวจ', 'Explorar', 'Entdecken'],
+    'Tài nguyên': ['Resources', 'リソース', 'ធនធាន', 'Sumber daya', 'Sumber', 'แหล่งข้อมูล', 'Recursos', 'Ressourcen'],
+    'Chính sách & hỗ trợ': ['Policies & support', 'ポリシーとサポート', 'គោលការណ៍ និងជំនួយ', 'Kebijakan & dukungan', 'Dasar & sokongan', 'นโยบายและการสนับสนุน', 'Políticas y soporte', 'Richtlinien & Support'],
+    'Điều khoản sử dụng': ['Terms of use', '利用規約', 'លក្ខខណ្ឌប្រើប្រាស់', 'Ketentuan penggunaan', 'Terma penggunaan', 'ข้อกำหนดการใช้งาน', 'Términos de uso', 'Nutzungsbedingungen'],
+    'Chính sách bảo mật': ['Privacy policy', 'プライバシーポリシー', 'គោលការណ៍ឯកជនភាព', 'Kebijakan privasi', 'Dasar privasi', 'นโยบายความเป็นส่วนตัว', 'Política de privacidad', 'Datenschutzerklärung'],
+    'Chính sách hoàn tiền': ['Refund policy', '返金ポリシー', 'គោលការណ៍សងប្រាក់', 'Kebijakan pengembalian dana', 'Dasar bayaran balik', 'นโยบายคืนเงิน', 'Política de reembolso', 'Rückerstattungsrichtlinie']
+  };
+  Object.assign(localizedText, {
+    'MEET YOUR LEARNING PARTNER': ['MEET YOUR LEARNING PARTNER', '学習パートナーの紹介', 'ជួបដៃគូសិក្សារបស់អ្នក', 'KENALI TEMAN BELAJARMU', 'KENALI RAKAN PEMBELAJARAN ANDA', 'พบกับเพื่อนร่วมเรียนรู้ของคุณ', 'CONOCE A TU COMPAÑERO DE APRENDIZAJE', 'LERNE DEINEN LERNPARTNER KENNEN'],
+    'LEARN EVERY DAY': ['LEARN EVERY DAY', '毎日学ぼう', 'រៀនរាល់ថ្ងៃ', 'BELAJAR SETIAP HARI', 'BELAJAR SETIAP HARI', 'เรียนรู้ทุกวัน', 'APRENDE CADA DÍA', 'LERNEN JEDEN TAG'],
+    'HOW IT WORKS': ['HOW IT WORKS', '使い方', 'របៀបដំណើរការ', 'CARA KERJA', 'CARA BERFUNGSI', 'วิธีการทำงาน', 'CÓMO FUNCIONA', 'SO FUNKTIONIERT ES'],
+    'Luyện diễn đạt và tự tin giao tiếp hơn.': ['Practice expressing yourself and communicate with more confidence.', '表現力を磨き、自信を持って会話しましょう。', 'ហាត់បញ្ចេញមតិ និងទំនាក់ទំនងដោយទំនុកចិត្ត។', 'Berlatih mengungkapkan diri dan berkomunikasi lebih percaya diri.', 'Berlatih menyampaikan idea dan berkomunikasi dengan lebih yakin.', 'ฝึกการสื่อสารและพูดได้อย่างมั่นใจมากขึ้น', 'Practica la expresión y comunícate con más confianza.', 'Übe, dich auszudrücken und selbstbewusster zu kommunizieren.'],
+    'Làm quen với âm thanh và cách diễn đạt tự nhiên.': ['Get familiar with natural sounds and expressions.', '自然な音や表現に慣れましょう。', 'ស្គាល់សំឡេង និងការបញ្ចេញមតិធម្មជាតិ។', 'Biasakan diri dengan bunyi dan ungkapan alami.', 'Biasakan diri dengan bunyi dan ungkapan semula jadi.', 'คุ้นเคยกับเสียงและสำนวนที่เป็นธรรมชาติ', 'Familiarízate con los sonidos y expresiones naturales.', 'Lerne natürliche Klänge und Ausdrücke kennen.'],
+    'Hiểu ý nghĩa, từ vựng và cấu trúc câu.': ['Understand meanings, vocabulary, and sentence structures.', '意味・語彙・文型を理解しましょう。', 'យល់អត្ថន័យ វាក្យសព្ទ និងរចនាសម្ព័ន្ធប្រយោគ។', 'Pahami makna, kosakata, dan struktur kalimat.', 'Fahami makna, kosa kata dan struktur ayat.', 'เข้าใจความหมาย คำศัพท์ และโครงสร้างประโยค', 'Comprende significados, vocabulario y estructuras de frases.', 'Verstehe Bedeutungen, Wortschatz und Satzstrukturen.'],
+    'Thực hành tạo câu và sử dụng kiến thức chủ động.': ['Practice forming sentences and actively using what you learn.', '文を作り、学んだ知識を積極的に使いましょう。', 'ហាត់បង្កើតប្រយោគ និងប្រើចំណេះដឹងយ៉ាងសកម្ម។', 'Berlatih membuat kalimat dan menggunakan pengetahuan secara aktif.', 'Berlatih membina ayat dan menggunakan pengetahuan secara aktif.', 'ฝึกสร้างประโยคและนำความรู้ไปใช้', 'Practica crear frases y usar activamente lo aprendido.', 'Übe, Sätze zu bilden und dein Wissen aktiv anzuwenden.'],
+    'Một trải nghiệm học tập được thiết kế để giúp bạn chuyển từ tiếp thu kiến thức sang chủ động sử dụng tiếng Nhật.': ['A learning experience designed to help you move from absorbing knowledge to actively using Japanese.', '知識を身につけるだけでなく、日本語を実際に使えるように設計された学習体験です。', 'បទពិសោធន៍រៀនដែលជួយឱ្យអ្នកផ្លាស់ពីការទទួលចំណេះដឹងទៅការប្រើភាសាជប៉ុនយ៉ាងសកម្ម។', 'Pengalaman belajar yang dirancang untuk membantu kamu beralih dari memahami materi ke menggunakan bahasa Jepang secara aktif.', 'Pengalaman pembelajaran yang membantu anda beralih daripada menerima ilmu kepada menggunakan bahasa Jepun secara aktif.', 'ประสบการณ์การเรียนที่ออกแบบให้คุณเปลี่ยนจากการรับความรู้ไปสู่การใช้ภาษาญี่ปุ่นจริง', 'Una experiencia diseñada para pasar de adquirir conocimientos a usar el japonés activamente.', 'Ein Lernerlebnis, das dich vom Aufnehmen von Wissen zur aktiven Anwendung des Japanischen führt.'],
+    'Khám phá bản demo': ['Explore the demo', 'デモを体験', 'ស្វែងយល់ពីសាកល្បង', 'Jelajahi demo', 'Terokai demo', 'ดูเดโม', 'Explorar la demo', 'Demo entdecken'],
+    'Khám phá': ['Explore', '探す', 'ស្វែងយល់', 'Jelajahi', 'Terokai', 'สำรวจ', 'Explorar', 'Entdecken'],
+    'Chọn nội dung và kỹ năng bạn muốn luyện tập.': ['Choose the content and skill you want to practice.', '練習したい内容とスキルを選びましょう。', 'ជ្រើសរើសមាតិកា និងជំនាញដែលអ្នកចង់ហាត់។', 'Pilih materi dan keterampilan yang ingin kamu latih.', 'Pilih kandungan dan kemahiran yang ingin anda latih.', 'เลือกเนื้อหาและทักษะที่ต้องการฝึก', 'Elige el contenido y la habilidad que quieres practicar.', 'Wähle Inhalte und Fähigkeiten, die du üben möchtest.'],
+    'Học trong ngữ cảnh': ['Learn in context', '文脈の中で学ぶ', 'រៀនតាមបរិបទ', 'Belajar dalam konteks', 'Belajar mengikut konteks', 'เรียนรู้ตามบริบท', 'Aprende en contexto', 'Im Kontext lernen'],
+    'Kết nối từ vựng, ngữ pháp với ví dụ thực tế.': ['Connect vocabulary and grammar with real examples.', '語彙や文法を実例と結びつけましょう。', 'ភ្ជាប់វាក្យសព្ទ និងវេយ្យាករណ៍ជាមួយឧទាហរណ៍ពិត។', 'Hubungkan kosakata dan tata bahasa dengan contoh nyata.', 'Hubungkan kosa kata dan tatabahasa dengan contoh sebenar.', 'เชื่อมโยงคำศัพท์และไวยากรณ์กับตัวอย่างจริง', 'Relaciona vocabulario y gramática con ejemplos reales.', 'Verbinde Wortschatz und Grammatik mit echten Beispielen.'],
+    'Thực hành cùng AI': ['Practice with AI', 'AIと練習', 'ហាត់ជាមួយ AI', 'Berlatih dengan AI', 'Berlatih dengan AI', 'ฝึกกับ AI', 'Practica con IA', 'Mit KI üben'],
+    'Luyện tập và nhận hỗ trợ trong quá trình học.': ['Practice and get support as you learn.', '練習しながら学習サポートを受けましょう。', 'ហាត់ និងទទួលបានជំនួយក្នុងពេលរៀន។', 'Berlatih dan dapatkan bantuan selama belajar.', 'Berlatih dan dapatkan sokongan semasa belajar.', 'ฝึกฝนและรับความช่วยเหลือระหว่างเรียน', 'Practica y recibe apoyo durante el aprendizaje.', 'Übe und erhalte Unterstützung beim Lernen.'],
+    'Ôn tập và duy trì': ['Review and stay consistent', '復習して継続', 'រំលឹកឡើងវិញ និងបន្តជាប្រចាំ', 'Ulangi dan tetap konsisten', 'Ulang kaji dan kekal konsisten', 'ทบทวนและเรียนอย่างสม่ำเสมอ', 'Repasa y mantén la constancia', 'Wiederholen und dranbleiben'],
+    'Giữ nhịp học đều đặn và quay lại kiến thức đã học.': ['Keep a steady learning rhythm and revisit what you have learned.', '学習のペースを保ち、学んだ内容を復習しましょう。', 'រក្សាចង្វាក់រៀនទៀងទាត់ និងត្រឡប់ទៅមេរៀនចាស់។', 'Jaga ritme belajar dan tinjau kembali materi yang sudah dipelajari.', 'Kekalkan rentak pembelajaran dan ulang kaji perkara yang telah dipelajari.', 'รักษาจังหวะการเรียนและกลับมาทบทวนสิ่งที่เรียนแล้ว', 'Mantén el ritmo y repasa lo aprendido.', 'Behalte einen regelmäßigen Lernrhythmus bei und wiederhole Gelerntes.'],
+    'Kỹ năng: Nghe': ['Skill: Listening', 'スキル：聞く', 'ជំនាញ៖ ស្តាប់', 'Keterampilan: Menyimak', 'Kemahiran: Mendengar', 'ทักษะ: การฟัง', 'Habilidad: Escuchar', 'Fähigkeit: Hören'],
+    'Luyện nghe phản xạ với hội thoại đời sống, video và nội dung tiếng Nhật gần gũi.': ['Build listening reflexes with everyday conversations, videos, and practical Japanese content.', '日常会話や動画を使って、実践的な日本語の聞き取りを練習しましょう。', 'ហាត់ស្តាប់ឆ្លើយតបតាមរយៈការសន្ទនាប្រចាំថ្ងៃ វីដេអូ និងមាតិកាជប៉ុនជាក់ស្តែង។', 'Latih respons mendengarkan melalui percakapan sehari-hari, video, dan konten Jepang yang relevan.', 'Latih tindak balas mendengar melalui perbualan harian, video dan kandungan Jepun yang praktikal.', 'ฝึกฟังและตอบสนองจากบทสนทนาในชีวิตประจำวัน วิดีโอ และเนื้อหาญี่ปุ่นจริง', 'Mejora tu comprensión auditiva con conversaciones cotidianas, vídeos y contenido japonés práctico.', 'Trainiere dein Hörverständnis mit Alltagsgesprächen, Videos und praktischem Japanisch.'],
+    'Tùy chỉnh tốc độ 0.75x–1.5x': ['Adjust speed 0.75x–1.5x', '速度を0.75倍〜1.5倍に調整', 'កែសម្រួលល្បឿន 0.75x–1.5x', 'Atur kecepatan 0,75x–1,5x', 'Laraskan kelajuan 0.75x–1.5x', 'ปรับความเร็ว 0.75x–1.5x', 'Ajusta la velocidad de 0,75x a 1,5x', 'Geschwindigkeit von 0,75x bis 1,5x einstellen'],
+    'Phụ đề và Furigana': ['Subtitles and Furigana', '字幕とふりがな', 'ចំណងជើងរង និង Furigana', 'Subtitle dan Furigana', 'Sari kata dan Furigana', 'คำบรรยายและฟุริงานะ', 'Subtítulos y furigana', 'Untertitel und Furigana'],
+    'Nghe lặp lại / Shadowing': ['Repeat listening / Shadowing', 'リピート再生・シャドーイング', 'ស្តាប់ម្តងហើយម្តងទៀត / Shadowing', 'Dengarkan ulang / Shadowing', 'Dengar berulang / Shadowing', 'ฟังซ้ำ / Shadowing', 'Escucha repetida / Shadowing', 'Wiederholen / Shadowing'],
+    'Gợi ý nội dung': ['Suggested content', 'おすすめコンテンツ', 'មាតិកាណែនាំ', 'Rekomendasi konten', 'Kandungan yang disyorkan', 'เนื้อหาแนะนำ', 'Contenido recomendado', 'Inhalte empfehlen'],
+    'Hội thoại tại cửa hàng tiện lợi (Combini), tin tức dễ hiểu và các tình huống giao tiếp hằng ngày.': ['Convenience-store conversations, easy news, and everyday communication scenarios.', 'コンビニでの会話、やさしいニュース、日常のコミュニケーション場面。', 'ការសន្ទនានៅហាង convenience store ព័ត៌មានងាយយល់ និងស្ថានការណ៍ប្រចាំថ្ងៃ។', 'Percakapan di minimarket, berita sederhana, dan situasi komunikasi sehari-hari.', 'Perbualan di kedai serbaneka, berita mudah dan situasi komunikasi harian.', 'บทสนทนาในร้านสะดวกซื้อ ข่าวที่เข้าใจง่าย และสถานการณ์ในชีวิตประจำวัน', 'Conversaciones en tiendas, noticias fáciles y situaciones cotidianas.', 'Gespräche im Convenience-Store, leicht verständliche Nachrichten und Alltagssituationen.'],
+    'Cơ bản': ['Basic', 'ベーシック', 'មូលដ្ឋាន', 'Dasar', 'Asas', 'พื้นฐาน', 'Básico', 'Basis'],
+    'Bắt đầu miễn phí': ['Start for free', '無料で始める', 'ចាប់ផ្តើមឥតគិតថ្លៃ', 'Mulai gratis', 'Mula secara percuma', 'เริ่มฟรี', 'Empieza gratis', 'Kostenlos starten'],
+    'Trải nghiệm Pro': ['Try Pro', 'Proを体験', 'សាកល្បង Pro', 'Coba Pro', 'Cuba Pro', 'ทดลองใช้ Pro', 'Probar Pro', 'Pro testen'],
+    'Tìm hiểu gói trọn đời': ['Explore Lifetime plan', 'Lifetimeプランを見る', 'ស្វែងយល់ពីកញ្ចប់ Lifetime', 'Lihat paket Lifetime', 'Lihat pelan Lifetime', 'ดูแพ็กเกจ Lifetime', 'Ver el plan de por vida', 'Lifetime-Tarif entdecken'],
+    'Giới thiệu NihonGO': ['About NihonGO', 'NihonGOについて', 'អំពី NihonGO', 'Tentang NihonGO', 'Tentang NihonGO', 'เกี่ยวกับ NihonGO', 'Acerca de NihonGO', 'Über NihonGO'],
+    '4 kỹ năng toàn diện': ['All four skills', '4技能を総合的に', 'ជំនាញទាំង ៤', 'Empat keterampilan', 'Empat kemahiran', 'ครบทั้ง 4 ทักษะ', 'Las cuatro habilidades', 'Alle vier Fähigkeiten'],
+    'Lộ trình học cá nhân hóa': ['Personalized learning path', '個別学習プラン', 'ផែនការរៀនផ្ទាល់ខ្លួន', 'Jalur belajar personal', 'Laluan pembelajaran peribadi', 'แผนการเรียนเฉพาะบุคคล', 'Ruta de aprendizaje personalizada', 'Personalisierter Lernpfad'],
+    'Trải nghiệm bài tập': ['Try exercises', '練習問題を体験', 'សាកល្បងលំហាត់', 'Coba latihan', 'Cuba latihan', 'ลองทำแบบฝึกหัด', 'Probar ejercicios', 'Übungen ausprobieren'],
+    'Cảm nhận học viên': ['Learner reviews', '学習者の声', 'មតិអ្នកសិក្សា', 'Ulasan pelajar', 'Ulasan pelajar', 'รีวิวจากผู้เรียน', 'Opiniones de estudiantes', 'Erfahrungsberichte'],
+    'Bảng giá gói học': ['Learning plans and pricing', '学習プランと料金', 'កញ្ចប់សិក្សា និងតម្លៃ', 'Paket dan harga', 'Pelan dan harga', 'แพ็กเกจและราคา', 'Planes y precios', 'Lernpläne und Preise'],
+    'Câu hỏi thường gặp': ['FAQ', 'よくある質問', 'សំណួរញឹកញាប់', 'Pertanyaan umum', 'Soalan lazim', 'คำถามที่พบบ่อย', 'Preguntas frecuentes', 'Häufige Fragen'],
+    'Luyện nghe mẫu': ['Listening demo', 'リスニング体験', 'សាកល្បងស្តាប់', 'Demo menyimak', 'Demo mendengar', 'ตัวอย่างฝึกฟัง', 'Demo de escucha', 'Hörbeispiel'],
+    'Câu hỏi N5': ['N5 question', 'N5の問題', 'សំណួរ N5', 'Soal N5', 'Soalan N5', 'คำถาม N5', 'Pregunta N5', 'N5-Frage'],
+    'Từ điển Kanji N5–N1 (sắp có)': ['Kanji dictionary N5–N1 (coming soon)', '漢字辞典 N5〜N1（近日公開）', 'វចនានុក្រម Kanji N5–N1 (នឹងមកដល់)', 'Kamus Kanji N5–N1 (segera hadir)', 'Kamus Kanji N5–N1 (akan datang)', 'พจนานุกรมคันจิ N5–N1 (เร็ว ๆ นี้)', 'Diccionario de kanji N5–N1 (próximamente)', 'Kanji-Wörterbuch N5–N1 (demnächst)']
+  });
+
+  Object.assign(localizedText, {
+    'Thực tập sinh tại Tokyo, Nhật Bản': ['Intern in Tokyo, Japan', '日本・東京でインターン', 'អ្នកហាត់ការនៅតូក្យូ ប្រទេសជប៉ុន', 'Magang di Tokyo, Jepang', 'Pelatih industri di Tokyo, Jepun', 'นักศึกษาฝึกงานในโตเกียว ประเทศญี่ปุ่น', 'Practicante en Tokio, Japón', 'Praktikant in Tokio, Japan'],
+    'Kỹ sư cầu nối (BrSE)': ['Bridge System Engineer (BrSE)', 'ブリッジシステムエンジニア（BrSE）', 'វិស្វករភ្ជាប់ទំនាក់ទំនង (BrSE)', 'Bridge System Engineer (BrSE)', 'Jurutera Sistem Penghubung (BrSE)', 'วิศวกรประสานงานระบบ (BrSE)', 'Ingeniero puente (BrSE)', 'Bridge-Systemingenieur (BrSE)'],
+    'Trước đây mình rất sợ phần Nghe và Nói vì không có người luyện tập cùng. Từ ngày học với NihonGO, linh vật Momo dễ thương luôn đồng hành nhắc nhở.': ['I used to be afraid of listening and speaking because I had no one to practice with. Since studying with NihonGO, the lovely Momo mascot has been there to encourage me.', '以前は一緒に練習する人がいなくて、聞くことと話すことが苦手でした。NihonGOで学び始めてから、かわいいMomoがいつも励ましてくれます。', 'ពីមុនខ្ញុំខ្លាចការស្តាប់ និងការនិយាយ ព្រោះគ្មានអ្នកហាត់ជាមួយ។ ចាប់តាំងពីរៀនជាមួយ NihonGO មក Momo ដ៏គួរឱ្យស្រឡាញ់តែងតែលើកទឹកចិត្តខ្ញុំ។', 'Dulu saya takut latihan menyimak dan berbicara karena tidak punya teman berlatih. Sejak belajar dengan NihonGO, maskot Momo selalu menemani dan menyemangati saya.', 'Dahulu saya takut berlatih mendengar dan bertutur kerana tiada rakan latihan. Sejak belajar dengan NihonGO, maskot Momo sentiasa menemani dan memberi semangat.', 'เมื่อก่อนฉันกลัวการฟังและการพูดเพราะไม่มีคนฝึกด้วย ตั้งแต่เรียนกับ NihonGO มาสคอต Momo ก็คอยอยู่เคียงข้างและให้กำลังใจเสมอ', 'Antes me daba miedo escuchar y hablar porque no tenía con quién practicar. Desde que estudio con NihonGO, la adorable mascota Momo me acompaña y anima.', 'Früher hatte ich Angst vor Hör- und Sprechübungen, weil ich niemanden zum Üben hatte. Seit ich mit NihonGO lerne, begleitet mich das süße Maskottchen Momo und motiviert mich.'],
+    'Video ngữ cảnh thực tế của NihonGO khác biệt hoàn toàn với các app sách vở truyền thống. Bạn học được những câu người Nhật thường nói ở văn phòng và đời sống.': ['NihonGO’s real-life contextual videos are very different from traditional textbook apps. You learn phrases Japanese people actually use at work and in daily life.', 'NihonGOの実際の場面を使った動画は、従来の教科書型アプリとは大きく違います。職場や日常生活で日本人がよく使う表現を学べます。', 'វីដេអូតាមបរិបទជាក់ស្តែងរបស់ NihonGO ខុសពីកម្មវិធីសៀវភៅបែបប្រពៃណី។ អ្នករៀនឃ្លាដែលជនជាតិជប៉ុនប្រើនៅការិយាល័យ និងជីវិតប្រចាំថ្ងៃ។', 'Video kontekst nyata NihonGO berbeda dari aplikasi buku teks tradisional. Kamu belajar ungkapan yang benar-benar digunakan orang Jepang di kantor dan kehidupan sehari-hari.', 'Video berasaskan situasi sebenar NihonGO berbeza daripada aplikasi buku teks tradisional. Anda belajar ungkapan yang biasa digunakan orang Jepun di pejabat dan kehidupan harian.', 'วิดีโอสถานการณ์จริงของ NihonGO แตกต่างจากแอปตำราแบบเดิม คุณจะได้เรียนรู้ประโยคที่คนญี่ปุ่นใช้จริงในที่ทำงานและชีวิตประจำวัน', 'Los vídeos contextualizados de NihonGO son muy distintos de las apps tradicionales de libros. Aprendes expresiones que los japoneses usan en la oficina y en la vida diaria.', 'Die Videos mit realen Situationen von NihonGO unterscheiden sich deutlich von klassischen Lehrbuch-Apps. Du lernst Ausdrücke, die Japaner im Büro und Alltag tatsächlich verwenden.'],
+    'Giao diện ứng dụng trực quan! Mỗi ngày chỉ cần 15 phút rảnh rỗi trên xe bus là mình đã học xong mục tiêu mà không cảm thấy áp lực.': ['The app interface is intuitive! Just 15 spare minutes on the bus each day is enough to finish my learning goal without feeling pressured.', 'アプリの画面は直感的で使いやすいです。毎日バスで空いた15分だけで、プレッシャーを感じずに学習目標を達成できます。', 'ចំណុចប្រទាក់កម្មវិធីងាយស្រួលប្រើ! ចំណាយពេលទំនេរ ១៥ នាទីលើឡានក្រុងរាល់ថ្ងៃ ក៏អាចបញ្ចប់គោលដៅរៀនដោយមិនមានសម្ពាធ។', 'Antarmuka aplikasinya mudah dipahami! Cukup 15 menit waktu luang di bus setiap hari untuk menyelesaikan target belajar tanpa merasa tertekan.', 'Antara muka aplikasinya mudah digunakan! Hanya 15 minit masa lapang di bas setiap hari sudah cukup untuk mencapai sasaran belajar tanpa tekanan.', 'หน้าตาแอปใช้งานง่าย! ใช้เวลาว่างบนรถบัสวันละ 15 นาที ก็ทำเป้าหมายการเรียนได้โดยไม่รู้สึกกดดัน', '¡La interfaz es intuitiva! Con solo 15 minutos libres en el autobús cada día completo mi objetivo de estudio sin sentir presión.', 'Die App ist intuitiv! Mit nur 15 freien Minuten im Bus schaffe ich mein Lernziel jeden Tag, ohne mich unter Druck zu fühlen.'],
+    'Đỗ JLPT N2 sau 8 tháng học cùng Momo': ['Passed JLPT N2 after 8 months learning with Momo', 'Momoと8か月学習してJLPT N2に合格', 'ប្រឡងជាប់ JLPT N2 បន្ទាប់ពីរៀនជាមួយ Momo ៨ ខែ', 'Lulus JLPT N2 setelah 8 bulan belajar bersama Momo', 'Lulus JLPT N2 selepas 8 bulan belajar bersama Momo', 'สอบผ่าน JLPT N2 หลังเรียนกับ Momo 8 เดือน', 'Aprobé el JLPT N2 tras 8 meses aprendiendo con Momo', 'JLPT N2 nach 8 Monaten Lernen mit Momo bestanden'],
+    'Giao tiếp công sở tự nhiên, đỗ N1': ['Natural workplace communication; passed N1', '自然な職場会話、N1合格', 'ទំនាក់ទំនងនៅកន្លែងធ្វើការធម្មជាតិ និងប្រឡងជាប់ N1', 'Komunikasi kantor alami, lulus N1', 'Komunikasi pejabat yang semula jadi, lulus N1', 'สื่อสารในที่ทำงานได้เป็นธรรมชาติ สอบผ่าน N1', 'Comunicación natural en la oficina; aprobó el N1', 'Natürliche Kommunikation im Büro; N1 bestanden'],
+    'Đạt chuỗi streak 120 ngày liên tục': ['Reached a 120-day learning streak', '120日連続学習を達成', 'សម្រេចបានការរៀនជាប់គ្នា ១២០ ថ្ងៃ', 'Mencapai streak belajar 120 hari berturut-turut', 'Mencapai rentetan belajar 120 hari berturut-turut', 'เรียนต่อเนื่องครบ 120 วัน', 'Logró una racha de aprendizaje de 120 días', '120 Tage Lernserie erreicht']
+  });
+
+  const langCodes = ['en', 'ja', 'km', 'id', 'ms', 'th', 'es', 'de'];
+  const defaultText = new Map();
+  const translatableAttrs = ['aria-label', 'title', 'placeholder', 'alt'];
+  function applyLanguage(lang) {
+    const index = langCodes.indexOf(lang);
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+      if (!defaultText.has(node)) defaultText.set(node, node.nodeValue);
+      const original = defaultText.get(node);
+      const trimmed = original.trim();
+      if (lang === 'vi') { node.nodeValue = original; continue; }
+      const entry = localizedText[trimmed];
+      if (entry && index >= 0 && entry[index]) {
+        const start = original.match(/^\s*/)?.[0] || '';
+        const end = original.match(/\s*$/)?.[0] || '';
+        node.nodeValue = start + entry[index] + end;
+      }
+    }
+    document.documentElement.lang = lang;
+    const titleMap = {
+      vi: 'NihonGO — Học tiếng Nhật cùng Momo', en: 'NihonGO — Learn Japanese with Momo', ja: 'NihonGO — Momoと日本語を学ぼう', km: 'NihonGO — រៀនភាសាជប៉ុនជាមួយ Momo', id: 'NihonGO — Belajar bahasa Jepang bersama Momo', ms: 'NihonGO — Belajar bahasa Jepun bersama Momo', th: 'NihonGO — เรียนภาษาญี่ปุ่นกับ Momo', es: 'NihonGO — Aprende japonés con Momo', de: 'NihonGO — Japanisch lernen mit Momo'
+    };
+    document.title = titleMap[lang] || titleMap.vi;
+    document.querySelectorAll(translatableAttrs.map(a => `[${a}]`).join(',')).forEach(el => {
+      translatableAttrs.forEach(attr => {
+        if (!el.hasAttribute(attr)) return;
+        if (!el.dataset[`original${attr.replace(/[^a-z]/gi, '')}`]) el.dataset[`original${attr.replace(/[^a-z]/gi, '')}`] = el.getAttribute(attr);
+        const key = el.dataset[`original${attr.replace(/[^a-z]/gi, '')}`].trim();
+        if (lang === 'vi') el.setAttribute(attr, el.dataset[`original${attr.replace(/[^a-z]/gi, '')}`]);
+        else if (localizedText[key] && index >= 0 && localizedText[key][index]) el.setAttribute(attr, localizedText[key][index]);
+      });
+    });
+    const furiganaBtn = document.querySelector('#furigana-toggle');
+    if (furiganaBtn) furiganaBtn.dataset.currentLanguage = lang;
+  }
+  if (languageSelect) {
+    languageSelect.addEventListener('change', () => applyLanguage(languageSelect.value));
+    // Vietnamese is the default language on every fresh visit.
+    languageSelect.value = 'vi';
+  }
+  // Accessible custom language menu. Keep the native select as the single source of truth.
+  const languagePicker = document.querySelector('#language-picker');
+  const languageTrigger = document.querySelector('#language-trigger');
+  const languageMenu = document.querySelector('#language-menu');
+  const languageCurrent = document.querySelector('#language-current');
+  const languageNames = {vi:'Vietnamese',en:'English',ja:'Japanese',km:'Khmer',id:'Indonesian',ms:'Malay',th:'Thai',es:'Spanish',de:'German'};
+  function closeLanguageMenu() {
+    if (!languagePicker || !languageTrigger || !languageMenu) return;
+    languagePicker.classList.remove('is-open');
+    languageMenu.hidden = true;
+    languageTrigger.setAttribute('aria-expanded','false');
+  }
+  function syncLanguagePicker(lang) {
+    if (!languagePicker || !languageCurrent) return;
+    languageCurrent.textContent = languageNames[lang] || 'Vietnamese';
+    languagePicker.querySelectorAll('.language-option').forEach(option => {
+      const selected = option.dataset.lang === lang;
+      option.classList.toggle('is-selected', selected);
+      option.setAttribute('aria-selected', String(selected));
+    });
+  }
+  if (languagePicker && languageTrigger && languageMenu && languageSelect) {
+    languageTrigger.addEventListener('click', () => {
+      const opening = languageMenu.hidden;
+      languageMenu.hidden = !opening;
+      languagePicker.classList.toggle('is-open', opening);
+      languageTrigger.setAttribute('aria-expanded', String(opening));
+    });
+    languagePicker.querySelectorAll('.language-option').forEach(option => {
+      option.addEventListener('click', () => {
+        languageSelect.value = option.dataset.lang;
+        languageSelect.dispatchEvent(new Event('change', {bubbles:true}));
+        syncLanguagePicker(option.dataset.lang);
+        closeLanguageMenu();
+        languageTrigger.focus();
+      });
+    });
+    document.addEventListener('click', event => {
+      if (!languagePicker.contains(event.target)) closeLanguageMenu();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !languageMenu.hidden) {
+        closeLanguageMenu();
+        languageTrigger.focus();
+      }
+    });
+    languageSelect.addEventListener('change', () => syncLanguagePicker(languageSelect.value));
+    syncLanguagePicker('vi');
+  }
+
+  </script>
+</body>
+</html>
